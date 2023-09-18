@@ -104,13 +104,6 @@ body {
 }
 
 
-@media screen and (max-width:768px) {
-    .popular-recipe-item:nth-last-child(-n+2) {
-        display: none;
-
-    }
-}
-
 .popular-list {
     display: flex;
     flex-direction: column;
@@ -131,4 +124,13 @@ body {
 
 .popular-recipe-item {
     display: flex;
+}
+
+
+
+@media screen and (max-width:768px) {
+    .popular-recipe-item:nth-last-child(-n+2) {
+        display: none;
+
+    }
 }
