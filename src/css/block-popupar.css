@@ -127,7 +127,6 @@ body {
 }
 
 
-
 @media screen and (max-width:768px) {
     .popular-recipe-item:nth-last-child(-n+2) {
         display: none;
