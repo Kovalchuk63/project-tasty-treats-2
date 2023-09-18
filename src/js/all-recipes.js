@@ -80,7 +80,7 @@ function allCategoriesMarkup(cards) {
     </li>`;
       } else {
         return `<li class="card-item">
-          <svg class="card-svg-heart-checked js-card-svg-heart" width="22px" height="22px">
+          <svg class="card-svg-heart js-card-svg-heart" width="22px" height="22px">
         <use href="${sprite}#icon-heart"></use>
       </svg>
       <div class="image-gradient">
