@@ -11,7 +11,7 @@
 @media screen and (max-width: 767px) {
   .hero-img {
     background-color: #be832a;
-    background-image: url('../img/favourites-hero/mobile/mobile-hero.jpg');
+    background-image: url('../img/favorite_mob.jpg');
 
     width: 335px;
     height: 516px;
@@ -23,14 +23,14 @@
   screen and (min-resolution: 192dpi) and (max-width: 767px),
   screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .hero-img {
-    background-image: url('../img/favourites-hero/mobile/mobile-hero@2x.jpg');
+    background-image: url('../img/favorite_mob_2x.jpg');
   }
 }
 
 @media screen and (min-width: 768px) {
   .hero-img {
     background-color: #be832a;
-    background: url('../img/favourites-hero/tablet/tablet-hero.jpg');
+    background: url('../img/favorite_tab.jpg');
 
     width: 704px;
     height: 356px;
@@ -42,14 +42,14 @@
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .hero-img {
-    background-image: url('../img/favourites-hero/tablet/tablet-hero@2x.jpg');
+    background-image: url('../img/favorite_tab_2x.jpg');
   }
 }
 
 @media screen and (min-width: 1280px) {
   .hero-img {
     background-color: #be832a;
-    background-image: url('../img/favourites-hero/desctop/desctop-hero.jpg');
+    background-image: url('../img/favorite_desk.jpg');
 
     width: 1080px;
     height: 356px;
@@ -61,7 +61,7 @@
   screen and (min-resolution: 192dpi) and (min-width: 1280px),
   screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .hero-img {
-    background-image: url('../img/favourites-hero/desctop/desctop-hero@2x.jpg');
+    background-image: url('../img/favorite_desk_2x.jpg');
   }
 }
 
@@ -72,12 +72,21 @@
 @media screen and (max-width: 767px) {
   .hero-favourites {
     padding-bottom: 64px;
+    padding-top: 49px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .hero-favourites {
     padding-bottom: 64px;
+    padding-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-favourites {
+    padding-bottom: 64px;
+    padding-top: 40px;
   }
 }
 
