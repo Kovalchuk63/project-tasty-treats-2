@@ -24,6 +24,8 @@
 
 .image-gradient {
   position: relative;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .image-gradient::after {
