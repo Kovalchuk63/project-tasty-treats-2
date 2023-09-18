@@ -1,0 +1,132 @@
+/* Basic styles  */
+.all-categories-btn {
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  padding-top: 14px;
+  padding-right: 29px;
+  padding-bottom: 14px;
+  padding-left: 29px;
+  color: rgba(5, 5, 5, 0.5);
+  font-family: inherit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: transparent;
+  margin-bottom: 24px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* Basic styles */
+.all-categories-btn:hover,
+.all-categories-btn:focus {
+  background-color: var(--brand-color);
+  color: #f8f8f8;
+}
+
+/* Tablet styles >= 768px */
+@media only screen and (min-width: 768px) {
+  .all-categories-btn {
+    margin-bottom: 30px;
+  }
+}
+
+/* Desctop styles >= 1280px */
+@media only screen and (min-width: 1280px) {
+  .all-categories-btn {
+    margin-bottom: 42px;
+  }
+}
+
+/* Basic styles */
+.categories-btn-card {
+  max-width: 326px;
+  height: 198px;
+  overflow-y: auto;
+}
+
+/* Tablet styles >=768px */
+@media only screen and (min-width: 768px) {
+  .categories-btn-card {
+    max-width: 176px;
+    height: 416px;
+  }
+}
+
+/* Desctop styles >=1280px */
+@media only screen and (min-width: 1280px) {
+  .categories-btn-card {
+    max-width: 235px;
+    height: 416px;
+  }
+}
+
+/* Basic styles */
+.categories-btn {
+  display: block;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: rgba(5, 5, 5, 0.3);
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  transition: color var(--transition);
+}
+
+/* Tablet styles >=768px */
+@media only screen and (min-width: 768px) {
+  .categories-btn {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* Basic styles */
+.categories-btn:hover,
+.categories-btn:focus {
+  color: var(--brand-color);
+}
+
+/* Basic styles */
+.categories-btn:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+/* Basic styles */
+.all-categories-btn-active {
+  color: #f8f8f8;
+  background-color: var(--brand-color);
+}
+
+/* Tablet styles >= 768px */
+@media only screen and (min-width: 768px) {
+  .categories-btn:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+/* Basic styles */
+.categories-btn-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Basic styles */
+.categories-btn-card::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: rgba(5, 5, 5, 0.18);
+}
+
+/* Basic styles */
+.all-categories-card {
+  margin-bottom: 40px;
+}
+
+/* Tablet styles >=768px */
+@media only screen and (min-width: 768px) {
+  .all-categories-card {
+    margin-bottom: 64px;
+  }
+}
