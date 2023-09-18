@@ -10,7 +10,102 @@
 </head>
 <body>
     <header>
+        <section class="header container">
+    <div class="header-container" id="header">
+      <!-- Navigation -->
+      <nav class="nav-header">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="./index.html" class="nav-link ">Home</a>
+          </li>
+          <li class="nav-item current">
+            <a href="./favorites.html" class="nav-link current link">Favorites</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Logo -->
+      <a href="./index.html" class="logo-header link"
+        >tasty<span class="logo-color">treats.</span>
+      </a>
+      <div class="header-btn-box">
+          <a
+            data-modal-open
+            class="shopping-link link"
+            rel="noopener noreferrer"
+            aria-label="shopping-card"
+          >
+            <svg class="shopping-icon" width="24" height="24">
+              <use href="/src/sprite.svg#icon-bag"></use>
+            </svg>
+          </a>
+          <!-- Burger mobile -->
+          <button
+            class="burger-menu js-open-menu"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg class="burger-menu-icon" width="32" height="32">
+              <use href="/src/sprite.svg#icon-burger"></use>
+            </svg>
+          </button>
+          <!-- Toggle -->
+          
+          <div class="theme-switcher main js-switcher">
+            <input type="checkbox" class="input-switcher" id="switch" /><label
+              class="input-label"
+              for="switch"
+              >Toggle</label
+            >
+          </div>
+        </div>
+      </nav>
+    </div>
+  
+    <!-- Mobile window -->
+  
+    <div class="menu-container js-menu-container" id="mobile-menu">
+      <button class="menu-toggle js-close-menu">
+        <svg
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10
+            8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0
+            01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10
+            4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+  
+      <ul class="mobile-menu">
+        <li class="nav-item-burger">
+          <a class="nav-link current link" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item-burger">
+          <a href="/src/favorites.html" class="nav-link link">Favorites</a>
+        </li>
+  
+        <!-- Toggle-switch-burger -->
+        <li class="theme-switcher burger">
+          <input
+            type="checkbox"
+            class="input-switcher"
+            id="mobile-switch"
+          />
+          <label class="input-label" for="mobile-switch"></label>
+        </li>
         
+      </ul>
+    </div>
+  </section>
+  
       </header>
       <main>
         <section class="favourites">
