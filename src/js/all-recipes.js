@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const categoriesBtn = document.querySelector('.js-all-categories-btn');
 const cardsList = document.querySelector('.js-card-list');
 export const LS_DISHES_KEY = 'Favourite dishes';
+let cardsInfo = [];
 
 categoriesBtn.addEventListener('click', onAllCategoryButtonClick);
 
