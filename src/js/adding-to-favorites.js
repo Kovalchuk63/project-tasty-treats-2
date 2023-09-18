@@ -6,6 +6,7 @@ import {
 import sprite from '../sprite.svg';
 
 const favouritesCardsList = document.querySelector('.js-all-favourite-cards');
+console.log(favouritesCardsList);
 
 const productsForFavoriteMarkup =
   JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
