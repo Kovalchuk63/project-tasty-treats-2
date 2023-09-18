@@ -2,7 +2,7 @@ import {
   calculationOfRatedStars,
   LS_DISHES_KEY,
   defaults,
-} from './list-of-recipes.js';
+} from './all-recipes.js';
 import sprite from '../sprite.svg';
 
 const favouritesCardsList = document.querySelector('.js-all-favourite-cards');
