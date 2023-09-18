@@ -8,8 +8,28 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-<!--     <load ="partials/header.html" /> -->
+    <header>
+      <load src="partials/header.html" />
+    </header>
+    <main>
+      <section class="filter">
+        <div class="container cont-div">
+          <div class="left-side">
+            <load src="./partials/block-categories.html" />
+            <load src="./partials/block-list-popular.html" />
+          </div>
+          <div class="right-side">
+            <load src="./partials/block-search.html" />
+            <load src="./partials/block-list-recipes.html" />
+            <load src="./partials/pagin.html">
+          </div>
+        </div>
+      </section>
+    </main>
 
+    <load src="./partials/modal-order.html" />
+    <load src="./partials/modal-recipe.html" />
+    
 
     <script type="module" src="/main.js"></script>
   </body>
