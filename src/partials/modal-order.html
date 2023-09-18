@@ -1,0 +1,70 @@
+<!-- Module Window -->
+<div class="backdrop modal" data-modal="1">
+    <div class="thumb-order">
+        <button type="button" class="thumb-btn-order js-modal-close">
+          <svg width="20" height="20" class="thumb-svg-order">
+            <use href="/src/sprite.svg#icon-modal-cross"></use>
+          </svg>
+        </button>
+        <strong class="modal-order-head"
+          >Order now</strong
+        >
+        <!-- INPUTS -->
+        <form class="modal-form-order">
+          <ul class="inp-ul-order list">
+            <li class="inp-li-order">
+                <label class="inp-lab">Name
+                <input class="input-order"
+                type="text" 
+                id="name" name="name" 
+                required 
+                pattern="[A-Za-zА-Яа-яЁё\s]{2,30}"
+                minlength="2" 
+                maxlength="50" 
+                autocapitalize="words">
+            </label>
+            </li>
+            <li class="inp-li-order">
+                <label class="inp-lab">Phone number
+                <input class="input-order"
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+                pattern="[0-9()+\-\s]{5,20}"
+                minlength="10"
+                maxlength="10" 
+                autocorrect="off" 
+                autocomplete="tel">
+            </label>
+            </li>
+            <li class="inp-li-order">
+                <label class="inp-lab">Email
+                <input class="input-order"
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                pattern=""
+                autocorrect="off" 
+                autocomplete="email">
+
+            </label>
+            </li>
+            <li class="inp-li-order">
+                <label class="inp-lab">Comment
+                <textarea
+                class="input-order input-comm-order"
+                name="Comment"
+                id="modal_comment"
+                rows="4"
+                style="resize: none;"                
+              ></textarea>
+            </label>
+            </li>
+          </ul>
+        </form>
+        <button class="btn-send-order" type="submit">Send</button>
+      </div>
+</div>
+<div class="review-backdrop overlay js-overlay-modal"></div>
