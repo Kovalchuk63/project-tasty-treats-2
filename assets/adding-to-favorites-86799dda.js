@@ -71,7 +71,7 @@ Notiflix needs to be appended to the "<`+y+'>" element, but you called it before
         <button type="button" class="recipe-btn">See recipe</button>
       </div>
     </li>`:`<li class="card-item">
-          <svg class="card-svg-heart-checked js-card-svg-heart" width="22px" height="22px">
+          <svg class="card-svg-heart js-card-svg-heart" width="22px" height="22px">
         <use href="${ee}#icon-heart"></use>
       </svg>
       <div class="image-gradient">
