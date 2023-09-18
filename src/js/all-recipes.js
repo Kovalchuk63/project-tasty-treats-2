@@ -139,7 +139,7 @@ async function loadAllCategories() {
 
 // ============================START RATING====================
 
-function calculationOfRatedStars(rating) {
+export function calculationOfRatedStars(rating) {
   const ratedStars = Math.floor(rating / 2);
   return ratedStars;
 }
