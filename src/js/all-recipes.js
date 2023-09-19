@@ -160,7 +160,10 @@ export function onAddingToFavourites(event) {
     return;
   }
   const favouriteDish = event.target.closest('.card-item');
+  console.log(favouriteDish);
+
   const favouriteDishId = favouriteDish.dataset.id;
+  console.log(favouriteDishId);
   const currentDish = cardsInfo.find(({ _id }) => _id === favouriteDishId);
   const idx = favouriteDishes.findIndex(({ _id }) => _id === favouriteDishId);
   if (idx === -1) {

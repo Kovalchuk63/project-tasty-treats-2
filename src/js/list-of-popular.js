@@ -2,7 +2,6 @@ const popularRecipe = document.querySelector('.js-popular-recipes');
 /*=================BACK-END===========================*/
 serviceRecype()
     .then((data) => {
-        console.log(data);
         popularRecipe.insertAdjacentHTML('beforeend', createMarkupCard(data));
 
     })
