@@ -32,7 +32,7 @@ async function categoriesCardsSearch() {
 
 function allCategoriesMarkup(cards) {
   const markup = cards.results
-    .map(({ preview, title, description, rating }) => {
+    .map(({ preview, title, description, rating, _id }) => {
       const ratedStars = calculationOfRatedStars(rating);
       const ratedStarsArray = Array.from(
         { length: ratedStars },
@@ -148,15 +148,19 @@ export function calculationOfRatedStars(rating) {
 // ================================= ADDING TO FAVOURITES ============================================
 
 let favouriteDishes = JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
+console.log(favouriteDishes);
 
 cardsList.addEventListener('click', onAddingToFavourites);
+
 export function onAddingToFavourites(event) {
   const svgHeart = event.target.closest('.js-card-svg-heart');
   if (!svgHeart) {
     return;
   }
   const favouriteDish = event.target.closest('.card-item');
+  console.log(favouriteDish);
   const favouriteDishId = favouriteDish.dataset.id;
+  console.log(favouriteDishId);
   const currentDish = cardsInfo.find(({ _id }) => _id === favouriteDishId);
   const idx = favouriteDishes.findIndex(({ _id }) => _id === favouriteDishId);
   if (idx === -1) {
