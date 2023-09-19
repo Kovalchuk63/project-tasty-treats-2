@@ -4,7 +4,7 @@ body {
 }
 
 .description-dish {
-    color: rgba(5, 5, 5, 0.8);
+    color: --lt-text-color-opacity-eighty;
     font-size: 12px;
     line-height: 1.33;
     width: 252px;
@@ -17,6 +17,7 @@ body {
 
 @media screen and (min-width:768px) {
     .description-dish {
+        color: --lt-text-color-opacity-eighty;
         font-size: 10px;
         line-height: 1.4;
         width: 120px;
