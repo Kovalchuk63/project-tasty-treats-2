@@ -175,7 +175,4 @@ export function onAddingToFavourites(event) {
   localStorage.setItem(LS_DISHES_KEY, JSON.stringify(favouriteDishes));
 }
 
-export 
-export
-export
-export
+
