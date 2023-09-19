@@ -40,7 +40,7 @@
         </div>
         <button type="button" class="recipe-btn">See recipe</button>
       </div>
-    </li>`}).join("")}function lt(t){return Math.floor(t/2)}const dt=document.querySelector(".js-popular-recipes");ct().then(t=>{console.log(t),dt.insertAdjacentHTML("beforeend",ft(t))}).catch(t=>console.log(t));async function ct(){return await(await fetch("https://tasty-treats-backend.p.goit.global/api/recipes/popular")).json()}function ft(t){return`${t.map(({id:e,preview:i,title:s,description:r})=>`<li key="${e}" class="popular-recipe-item">            
+    </li>`}).join("")}function lt(t){return Math.floor(t/2)}const dt=document.querySelector(".js-popular-recipes");ct().then(t=>{dt.insertAdjacentHTML("beforeend",ft(t))}).catch(t=>console.log(t));async function ct(){return await(await fetch("https://tasty-treats-backend.p.goit.global/api/recipes/popular")).json()}function ft(t){return`${t.map(({id:e,preview:i,title:s,description:r})=>`<li key="${e}" class="popular-recipe-item">            
         <img class="img-dish" src="${i}" alt="${s}"> 
         <div class ="div-popular-list">
         <h3 class="name-dish">${s.toUpperCase()}</h2>
