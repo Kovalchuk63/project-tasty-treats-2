@@ -4,3 +4,8 @@ import './js/swiper'
 
 import './js/adding-to-favorites.js'
 import './js/all-recipes.js'
+
+import './js/header.js'
+
+import './js/modal-recipe.js'
+
