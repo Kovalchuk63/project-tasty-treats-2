@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const categoriesBtn = document.querySelector('.js-all-categories-btn');
 const cardsList = document.querySelector('.js-card-list');
 export const LS_DISHES_KEY = 'Favourite dishes';
+let cardsInfo = [];
 
 categoriesBtn.addEventListener('click', onAllCategoryButtonClick);
 
@@ -31,7 +32,7 @@ async function categoriesCardsSearch() {
 
 function allCategoriesMarkup(cards) {
   const markup = cards.results
-    .map(({ preview, title, description, rating }) => {
+    .map(({ preview, title, description, rating, _id }) => {
       const ratedStars = calculationOfRatedStars(rating);
       const ratedStarsArray = Array.from(
         { length: ratedStars },
@@ -56,7 +57,7 @@ function allCategoriesMarkup(cards) {
           ({ _id: IdlocalStorage }) => IdlocalStorage === _id
         )
       ) {
-        return `<li class="card-item">
+        return `<li class="card-item" data-id=${_id}>
           <svg class="card-svg-heart-checked js-card-svg-heart" width="22px" height="22px">
         <use href="${sprite}#icon-heart"></use>
       </svg>
@@ -79,8 +80,8 @@ function allCategoriesMarkup(cards) {
       </div>
     </li>`;
       } else {
-        return `<li class="card-item">
-          <svg class="card-svg-heart-checked js-card-svg-heart" width="22px" height="22px">
+        return `<li class="card-item" data-id=${_id}>
+          <svg class="card-svg-heart js-card-svg-heart" width="22px" height="22px">
         <use href="${sprite}#icon-heart"></use>
       </svg>
       <div class="image-gradient">
@@ -126,9 +127,11 @@ function onAllCategoryButtonClick() {
 async function loadAllCategories() {
   try {
     const cards = await categoriesCardsSearch();
+    cardsInfo.push(...cards.results);
     const markup = allCategoriesMarkup(cards);
     cardsList.innerHTML = markup;
   } catch (error) {
+    console.log(error.message);
     Notify.failure('Oops! Something went wrong. Try reloading the page.', {
       width: '400px',
       borderRadius: '10px',
@@ -139,7 +142,7 @@ async function loadAllCategories() {
 
 // ============================START RATING====================
 
-function calculationOfRatedStars(rating) {
+export function calculationOfRatedStars(rating) {
   const ratedStars = Math.floor(rating / 2);
   return ratedStars;
 }
@@ -149,13 +152,17 @@ function calculationOfRatedStars(rating) {
 let favouriteDishes = JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
 
 cardsList.addEventListener('click', onAddingToFavourites);
+
 export function onAddingToFavourites(event) {
   const svgHeart = event.target.closest('.js-card-svg-heart');
   if (!svgHeart) {
     return;
   }
   const favouriteDish = event.target.closest('.card-item');
+  console.log(favouriteDish);
+
   const favouriteDishId = favouriteDish.dataset.id;
+  console.log(favouriteDishId);
   const currentDish = cardsInfo.find(({ _id }) => _id === favouriteDishId);
   const idx = favouriteDishes.findIndex(({ _id }) => _id === favouriteDishId);
   if (idx === -1) {
