@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const categoriesBtn = document.querySelector('.js-all-categories-btn');
 const cardsList = document.querySelector('.js-card-list');
 export const LS_DISHES_KEY = 'Favourite dishes';
-let cardsInfo = [];
+export let cardsInfo = [];
 
 categoriesBtn.addEventListener('click', onAllCategoryButtonClick);
 
@@ -149,7 +149,7 @@ export function calculationOfRatedStars(rating) {
 
 // ================================= ADDING TO FAVOURITES ============================================
 
-let favouriteDishes = JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
+export let favouriteDishes = JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
 
 cardsList.addEventListener('click', onAddingToFavourites);
 
@@ -174,3 +174,8 @@ export function onAddingToFavourites(event) {
   }
   localStorage.setItem(LS_DISHES_KEY, JSON.stringify(favouriteDishes));
 }
+
+export 
+export
+export
+export
