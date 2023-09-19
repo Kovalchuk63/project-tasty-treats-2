@@ -62,3 +62,5 @@
 //   'beforeend',
 //   createFavoriteMarkup(productsForFavoriteMarkup)
 // );
+
+console.log('hello')
