@@ -66,28 +66,50 @@
 
 .container {
   min-width: 320px;
+  margin: 0 auto;
   max-width: 375px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 20px;
 }
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0 32px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .container {
-    max-width: 1280px;
+    max-width: 1104px;
+    padding: 0 12px;
   }
+
+}
+
+.filter {
+  padding-top: 80px;
 }
 
 @media screen and (min-width: 768px) {
   .cont-div {
+    gap: 32px;
     display: flex;
-    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .cont-div {
+    gap: 64px;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .left-side {
+    padding-top: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .rigth-side {
+    padding-top: 26px;
   }
 }
