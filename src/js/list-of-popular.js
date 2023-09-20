@@ -1,7 +1,7 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const popularRecipe = document.querySelector('.js-popular-recipes');
-const popular = document.querySelector('.');
+const popular = document.querySelector('.img-dish');
 
 /*=================BACK-END===========================*/
 serviceRecype()

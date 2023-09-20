@@ -29,11 +29,11 @@ const refs = {
 refs.popular.addEventListener('click', handleRecipeClick);
 
 async function handleRecipeClick(event) {
-  if (!event.target.closest('.popular-recipe-item')) {
+  if (!event.target.closest('.name-popular')) {
     return;
   }
 
-  const clickedRecipe = event.target.closest('.popular-recipe-item');
+  const clickedRecipe = event.target.closest('.name-popular');
   const recipeId = clickedRecipe.getAttribute('key');
 
   await openRecipeModal(recipeId);
