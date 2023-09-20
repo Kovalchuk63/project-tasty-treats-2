@@ -23,6 +23,7 @@ serviceRecype()
 
 /*=================SHOW-CARD===========================*/
 
+
 function createMarkupCard(arr) {
     return arr.map(({ _id, preview, title, description }) => {
         return `<li key="${_id}" class="popular-recipe-item ">            
