@@ -16,7 +16,7 @@ async function fetchCook() {
 
 const refs = {
   allCards: document.querySelector('.card-list'),
-  popular : document.querySelector('.name-popular'),
+  popular: document.querySelector('.name-popular'),
   modalCardCont: document.querySelector('.card-markup-modal'),
   modalBackdrop: document.querySelector('.modal-backdrop'),
   modalButtonClose: document.querySelector('.modal-btn-close'),
@@ -28,20 +28,21 @@ const refs = {
   recipeBtn: document.querySelector('.recipe-btn'),
 };
 
-refs.allCards.addEventListener('click', handlerGetIdCard);
+ refs.allCards.addEventListener('click', handleCardButtonClick);
 
-async function handlerGetIdCard(event) {
-  
+async function handleCardButtonClick(event) {
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
   const buttonId = event.target.getAttribute('id');
   refs.recipeBtn.id = buttonId;
-  const dataById = await fetchCook(`/${buttonId}`);
+  const dataById = await fetchCook(`${BASE_URL}/${buttonId}`);
   const modalMarkup = createMarkupModal(dataById);
   refs.modalCardCont.innerHTML = modalMarkup;
-
   openModal();
 }
 
-refs.popular.addEventListener('click', handleRecipeClick)
+refs.popular.addEventListener('click', handleRecipeClick);
 
 async function handleRecipeClick(event) {
   if (!event.target.closest('.name-popular')) {
@@ -52,15 +53,14 @@ async function handleRecipeClick(event) {
   if (!clickedRecipe) return;
 
   const recipeId = clickedRecipe.dataset.id;
-  const dataRecipe = await fetchCook(`/${recipeId}`);
-  modalCardCont.innerHTML = createMarkupModal(dataRecipe);
-  addToFavorite.id = recipeId;
+  const dataRecipe = await fetchCook(`${BASE_URL}/${recipeId}`);
+  refs.modalCardCont.innerHTML = createMarkupModal(dataRecipe);
+  refs.addToFavorite.id = recipeId;
 
   openModal();
 }
 
-
- function createMarkupModal(data) {
+function createMarkupModal(data) {
   const youtubeLink = data.youtube;
 
   function getYoutubeVideoId(url) {
@@ -125,7 +125,6 @@ async function handleRecipeClick(event) {
   return modalCardMarkup;
 }
 
-
 function openModal() {
   refs.modalButtonClose.addEventListener('click', closeModal);
   refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
@@ -141,7 +140,7 @@ function handleKeyDown(event) {
     // closeRatingModal();
   }
 }
- function closeModal() {
+function closeModal() {
   refs.modalButtonClose.removeEventListener('click', closeModal);
   refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
   window.removeEventListener('keydown', handleKeyDown);
@@ -151,7 +150,7 @@ function handleKeyDown(event) {
   youtubeIframe.src = '';
 }
 
- function closeModalOnBackdrop(event) {
+function closeModalOnBackdrop(event) {
   if (event && event.target === refs.modalBackdrop) {
     refs.modalButtonClose.removeEventListener('click', closeModal);
     refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
@@ -161,6 +160,4 @@ function handleKeyDown(event) {
     const youtubeIframe = document.querySelector('.iframe-video');
     youtubeIframe.src = '';
   }
-
-} 
-
+}
