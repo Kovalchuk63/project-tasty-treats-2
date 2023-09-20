@@ -1,4 +1,4 @@
-import{L as v,s as a,d as s,c as u}from"./all-recipes-a9556b47.js";const i=document.querySelector(".js-all-favourite-cards");console.log(i);const p=JSON.parse(localStorage.getItem(v))??[];function h(t){return console.log(t),t.map(({preview:o,title:r,description:n,rating:e,_id:d})=>{const c=u(e),l=Array.from({length:c},()=>`<svg class="svg-star rated">
+import{L as v,s as a,d as s,c as u}from"./all-recipes-7f0de790.js";const i=document.querySelector(".js-all-favourite-cards");console.log(i);const p=JSON.parse(localStorage.getItem(v))??[];function h(t){return console.log(t),t.map(({preview:o,title:r,description:n,rating:e,_id:d})=>{const c=u(e),l=Array.from({length:c},()=>`<svg class="svg-star rated">
            <use href="${a}#icon-Star"></use>
        </svg>`).join(""),g=Array.from({length:5-c},()=>`<svg class="svg-star">
            <use href="${a}#icon-Star"></use>
