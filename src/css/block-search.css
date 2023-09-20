@@ -232,7 +232,9 @@
   }
 }
 
-.selected-option:hover {
+.selected-option:hover,
+.selected-area:hover,
+.selected-ing:hover {
   border-color: #9bb537;
 }
 
@@ -277,16 +279,16 @@
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
-  overflow:auto
+  overflow: auto;
 }
 
 .option-item {
-color: rgba(5, 5, 5, 0.3);
+  color: rgba(5, 5, 5, 0.3);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
   background-color: white;
-  border: none; 
+  border: none;
 }
