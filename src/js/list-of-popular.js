@@ -1,7 +1,7 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const popularRecipe = document.querySelector('.js-popular-recipes');
-const popular = document.querySelector('.img-dish');
+const popular = document.querySelector('.');
 
 /*=================BACK-END===========================*/
 serviceRecype()
@@ -33,23 +33,7 @@ function createMarkupCard(arr) {
          </li>`;
               }).join('')}
             `;
-            popular.addEventListener('click', handleRecipeClick);
-
-async function handleRecipeClick(event) {
-  if (!event.target.closest('#popular-recipes')) {
-    return;
-  }
-
-  const clickedRecipe = event.target.closest('#popular-recipes');
-  if (!clickedRecipe) return;
-
-  const recipeId = clickedRecipe.dataset.id;
-  const dataRecipe = await fetchCook(`${BASE_URL}/${recipeId}`);
-  refs.modalCardCont.innerHTML = createMarkupModal(dataRecipe);
-  refs.addToFavorite.id = recipeId;
-
-  openModal();
-}
+          
  }  
 
 
@@ -70,3 +54,21 @@ async function handleRecipeClick(event) {
 //    console.log(error);
 //     }
 //   }
+
+popular.addEventListener('click', handleRecipeClick);
+
+async function handleRecipeClick(event) {
+  if (!event.target.closest('#popular-recipes')) {
+    return;
+  }
+
+  const clickedRecipe = event.target.closest('#popular-recipes');
+  if (!clickedRecipe) return;
+
+  const recipeId = clickedRecipe.dataset.id;
+  const dataRecipe = await fetchCook(`${BASE_URL}/${recipeId}`);
+  refs.modalCardCont.innerHTML = createMarkupModal(dataRecipe);
+  refs.addToFavorite.id = recipeId;
+
+  openModal();
+}
