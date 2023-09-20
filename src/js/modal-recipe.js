@@ -1,6 +1,6 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-async function fetchCook() {
+export async function fetchCook() {
   try {
     const response = await fetch(BASE_URL);
     if (!response.ok) {
@@ -26,10 +26,10 @@ const refs = {
   recipeBtn: document.querySelector('.recipe-btn'),
 };
 
-refs.popular.addEventListener('click', handleRecipeClick);
+// refs.popular.addEventListener('click', handleRecipeClick);
 
 async function handleRecipeClick(event) {
-  if (!event.target.closest('.name-popular')) {
+  if (!event.target.closest('.popular-recipe-item')) {
     return;
   }
 
@@ -39,7 +39,7 @@ async function handleRecipeClick(event) {
   await openRecipeModal(recipeId);
 }
 
-refs.recipeBtn.addEventListener('click', handleRecipeButtonClick);
+// refs.recipeBtn.addEventListener('click', handleRecipeButtonClick);
 
 async function handleRecipeButtonClick(event) {
   if (!event.target.closest('.card-item')) {
