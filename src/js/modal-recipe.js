@@ -1,6 +1,6 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-async function fetchCook(recipeId) {
+async function fetchCook() {
   try {
     const response = await fetch(BASE_URL);
     if (!response.ok) {
@@ -52,6 +52,8 @@ async function handleRecipeButtonClick(event) {
   await openRecipeModal(recipeId);
 }
 
+
+
 async function openRecipeModal(recipeId) {
   try {
     const data = await fetchCook(recipeId);
@@ -79,19 +81,21 @@ async function openRecipeModal(recipeId) {
       )
       .join('');
 
-    const youtubeLink = data.youtube;
+    // const youtubeLink = data.youtube;
 
-    function getYoutubeVideoId(url) {
-      const videoIdMatch = url.match(/v=([^&]+)/);
-      return videoIdMatch ? videoIdMatch[1] : '';
-    }
+    // function getYoutubeVideoId(url) {
+    //   const videoIdMatch = url.match(/v=([^&]+)/);
+    //   return videoIdMatch ? videoIdMatch[1] : '';
+    // }
+    
+    const youtubeInsert = data.youtube.replace('https://www.youtube.com/watch?v=', '');
 
-    const videoId = getYoutubeVideoId(youtubeLink);
+    // const videoId = getYoutubeVideoId(youtubeLink);
 
-    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    // const embedUrl = `https://www.youtube.com/embed/${videoId}`;
     const modalCardMarkup = `
         <iframe
-          src="${embedUrl}"
+          src="https://www.youtube.com/embed/${youtubeInsert}"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
