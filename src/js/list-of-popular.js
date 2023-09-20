@@ -53,22 +53,22 @@ function createMarkupCard(arr) {
 //     } catch (error) {
 //    console.log(error);
 //     }
+// //   }
+
+// popular.addEventListener('click', handleRecipeClick);
+
+// async function handleRecipeClick(event) {
+//   if (!event.target.closest('#popular-recipes')) {
+//     return;
 //   }
 
-popular.addEventListener('click', handleRecipeClick);
+//   const clickedRecipe = event.target.closest('#popular-recipes');
+//   if (!clickedRecipe) return;
 
-async function handleRecipeClick(event) {
-  if (!event.target.closest('#popular-recipes')) {
-    return;
-  }
+//   const recipeId = clickedRecipe.dataset.id;
+//   const dataRecipe = await fetchCook(`${BASE_URL}/${recipeId}`);
+//   refs.modalCardCont.innerHTML = createMarkupModal(dataRecipe);
+//   refs.addToFavorite.id = recipeId;
 
-  const clickedRecipe = event.target.closest('#popular-recipes');
-  if (!clickedRecipe) return;
-
-  const recipeId = clickedRecipe.dataset.id;
-  const dataRecipe = await fetchCook(`${BASE_URL}/${recipeId}`);
-  refs.modalCardCont.innerHTML = createMarkupModal(dataRecipe);
-  refs.addToFavorite.id = recipeId;
-
-  openModal();
-}
+//   openModal();
+// }
