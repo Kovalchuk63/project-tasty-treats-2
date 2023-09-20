@@ -1,4 +1,4 @@
-import { fetchCook} from './modal-recipe';
+import { fetchCook } from './modal-recipe';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
@@ -36,6 +36,7 @@ function createMarkupCard(arr) {
               }).join('')}
             `;       
  }  
+ createMarkupCard();
 
 const modalCardCont = document.querySelector('.card-markup-modal');
 async function handleRecipeClick(event) {
