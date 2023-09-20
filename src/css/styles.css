@@ -85,9 +85,31 @@
 
 }
 
+.filter {
+  padding-top: 80px;
+}
+
 @media screen and (min-width: 768px) {
   .cont-div {
+    gap: 32px;
     display: flex;
-    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .cont-div {
+    gap: 64px;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .left-side {
+    padding-top: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .rigth-side {
+    padding-top: 26px;
   }
 }

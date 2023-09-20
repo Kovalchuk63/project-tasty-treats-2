@@ -55,14 +55,16 @@
   border: blue 5px solid;
 }*/
 .swiper-section {
-  /*margin-top: 90px;
-  margin-bottom: 90px;*/
   padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+  overflow: hidden;
 }
 
 .swiper-slide {
   display: flex;
-
   gap: 16px;
 }
 
