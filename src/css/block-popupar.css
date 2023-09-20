@@ -17,7 +17,7 @@ body {
 
 @media screen and (min-width:768px) {
     .description-dish {
-        color: --lt-text-color-opacity-eighty;
+        color: var(--lt-text-color-opacity-eighty);
         font-size: 10px;
         line-height: 1.4;
         width: 120px;
@@ -49,6 +49,10 @@ body {
     height: 64px;
 }
 
+.img-dish:hover {
+    cursor: pointer;
+}
+
 @media screen and (min-width:768px) {
     .img-dish {
         width: 48px;
@@ -69,6 +73,11 @@ body {
     line-height: 1.28;
     font-weight: 600;
     padding-bottom: 8px;
+}
+
+.name-dish:hover {
+    color: var(--brand-color);
+    cursor: pointer;
 }
 
 @media screen and (min-width:768px) {
