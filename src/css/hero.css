@@ -150,42 +150,40 @@
   background-color: var(--brand-color) !important;
 }
 /* HERO LEFT SIDE */
+
 .hero {
-  padding-bottom: 80px;
-  padding-top: 80px;
+  padding-top: 91px;
 }
 @media only screen and (min-width: 1280px) {
   .hero {
-    padding-bottom: 100px;
+    padding-top: 94px;
   }
 }
 .hero-container {
-  display: block;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 1280px) {
   .hero-container {
     display: flex;
+    align-items: center;
+    overflow: visible;
   }
 }
 .hero-title-block {
-  min-width: 335px;
   margin-bottom: 48px;
 }
 @media only screen and (min-width: 768px) {
   .hero-title-block {
-    min-width: 446px;
+    width: 446px;
     margin-bottom: 64px;
-  }
-}
-@media only screen and (min-width: 1280px) {
-  .hero-title-block {
     margin-right: 32px;
-    padding-top: 64px;
   }
 }
 
+
 .hero-title {
+  width: 335px;
   color: var(--lt-text-color);
   text-transform: uppercase;
   font-size: 26px;
@@ -195,6 +193,7 @@
 }
 @media only screen and (min-width: 768px) {
   .hero-title {
+    width: 446px;
     font-size: 36px;
     margin-bottom: 16px;
   }
