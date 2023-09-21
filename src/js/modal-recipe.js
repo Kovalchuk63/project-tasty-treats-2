@@ -1,12 +1,13 @@
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-async function fetchCook() {
+export async function fetchCook() {
   try {
     const response = await fetch(BASE_URL);
     if (!response.ok) {
       throw new Error(`Код: ${response.status}`);
     }
     const data = await response.json();
+
     return data;
   } catch (error) {
     console.error(error);
@@ -15,134 +16,123 @@ async function fetchCook() {
 }
 
 const refs = {
-  allCards: document.querySelector('.card-list'),
-  popular : document.querySelector('.name-popular'),
+  modal: document.querySelector('.backdrop'),
+  popular: document.querySelector('.popular-recipe-item'),
   modalCardCont: document.querySelector('.card-markup-modal'),
   modalBackdrop: document.querySelector('.modal-backdrop'),
-  modalButtonClose: document.querySelector('.modal-btn-close'),
+  modalCloseButton: document.querySelector('.modal-button-close'),
   giveRatingModalBtn: document.querySelector('.modal-give-rating'),
-  //ratingModal: document.querySelector('.rating-backdrop'),
-  // ratingButton: document.querySelector('.rating-send-btn'),
-  // ratingClose: document.querySelector('.modal-rating-close'),
   addToFavorite: document.querySelector('.modal-add-favorite'),
   recipeBtn: document.querySelector('.recipe-btn'),
 };
 
-refs.allCards.addEventListener('click', handlerGetIdCard);
-
-async function handlerGetIdCard(event) {
-  
-  const buttonId = event.target.getAttribute('id');
-  refs.recipeBtn.id = buttonId;
-  const dataById = await fetchCook(`/${buttonId}`);
-  const modalMarkup = createMarkupModal(dataById);
-  refs.modalCardCont.innerHTML = modalMarkup;
-
-  openModal();
-}
-
-refs.popular.addEventListener('click', handleRecipeClick)
+// refs.popular.addEventListener('click', handleRecipeClick);
 
 async function handleRecipeClick(event) {
-  if (!event.target.closest('.name-popular')) {
+  if (!event.target.closest('.popular-recipe-item')) {
     return;
   }
 
   const clickedRecipe = event.target.closest('.name-popular');
-  if (!clickedRecipe) return;
+  const recipeId = clickedRecipe.getAttribute('key');
 
-  const recipeId = clickedRecipe.dataset.id;
-  const dataRecipe = await fetchCook(`/${recipeId}`);
-  modalCardCont.innerHTML = createMarkupModal(dataRecipe);
-  addToFavorite.id = recipeId;
+  await openRecipeModal(recipeId);
+}
 
-  openModal();
+// refs.recipeBtn.addEventListener('click', handleRecipeButtonClick);
+
+async function handleRecipeButtonClick(event) {
+  if (!event.target.closest('.card-item')) {
+    return;
+  }
+
+  const clickedRecipe = event.target.closest('.card-item');
+  const recipeId = clickedRecipe.getAttribute('data-id');
+
+  await openRecipeModal(recipeId);
 }
 
 
- function createMarkupModal(data) {
-  const youtubeLink = data.youtube;
 
-  function getYoutubeVideoId(url) {
-    const videoIdMatch = url.match(/v=([^&]+)/);
-    return videoIdMatch ? videoIdMatch[1] : '';
-  }
+async function openRecipeModal(recipeId) {
+  try {
+    const data = await fetchCook(recipeId);
 
-  const videoId = getYoutubeVideoId(youtubeLink);
+    const roundedRating = parseFloat(data.rating).toFixed(1);
 
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    const tagsToRender = data.tags.slice(0, 2);
 
-  const roundedRating = parseFloat(data.rating).toFixed(1);
+    const tagsMarkup = tagsToRender
+      .map(
+        tag => `
+        <li class="hashtag-btn-item">#${tag}</li>
+      `
+      )
+      .join('');
 
-  const tagsToRender = data.tags.slice(0, 2);
-
-  const tagsMarkup = tagsToRender
-    .map(
-      tag => `
-      <li class="hashtag-btn-item">#${tag}</li>
+    const ingredientsMarkup = data.ingredients
+      .map(
+        ingredient => `
+      <li class="modal-card-ingr">
+        ${ingredient.name}
+        <span class="modal-card-measure">${ingredient.measure}</span>
+      </li>
     `
-    )
-    .join('');
+      )
+      .join('');
 
-  const ingredientsMarkup = data.ingredients
-    .map(
-      ingredient => `
-  <li class="modal-card-ingr">
-    ${ingredient.name}
-    <span class="modal-card-measure">${ingredient.measure}</span>
-  </li>
-`
-    )
-    .join('');
+    // const youtubeLink = data.youtube;
 
-  const modalCardMarkup = `
-      <iframe
-        src="${embedUrl}"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        class="iframe-video"
-      ></iframe>
-      <h3 class="modal-recipe-name">${data.title}</h3>
-      <div class="modal-general-inf">
-      <div class="card-star-modal card_star-rating">
-      <p class="modal-raiting cards-raiting">${roundedRating}</p>
-      <div class="starts-modal ">
-  
+    // function getYoutubeVideoId(url) {
+    //   const videoIdMatch = url.match(/v=([^&]+)/);
+    //   return videoIdMatch ? videoIdMatch[1] : '';
+    // }
+    
+    const youtubeInsert = data.youtube.replace('https://www.youtube.com/watch?v=', '');
 
-      </div>
-      <p class="modal-card-time">${data.time} min</p>
-    </div>
+    // const videoId = getYoutubeVideoId(youtubeLink);
 
-     
-        <ul class="modal-ingr-list">${ingredientsMarkup}</ul>
-        <ul class="hashtag-btn-list-tablet list">${tagsMarkup}</ul>
-        <p class="modal-recipe-instructions">${data.instructions}</p>
-      </div>
-`;
+    // const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    const modalCardMarkup = `
+        <iframe
+          src="https://www.youtube.com/embed/${youtubeInsert}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          class="iframe-video"
+        ></iframe>
+        <h3 class="modal-recipe-name">${data.title}</h3>
+        <div class="modal-general-inf">
+          <div class="card-star-modal card_star-rating">
+            <p class="modal-raiting cards-raiting">${roundedRating}</p>
+            <div class="starts-modal "></div>
+            <p class="modal-card-time">${data.time} min</p>
+          </div>
+          <ul class="modal-ingr-list">${ingredientsMarkup}</ul>
+          <ul class="hashtag-btn-list-tablet list">${tagsMarkup}</ul>
+          <p class="modal-recipe-instructions">${data.instructions}</p>
+        </div>
+    `;
 
-  return modalCardMarkup;
-}
+    refs.modalCardCont.innerHTML = modalCardMarkup;
 
+    refs.modal.style.display = 'block';
 
-function openModal() {
-  refs.modalButtonClose.addEventListener('click', closeModal);
-  refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
+    refs.modalCloseButton.addEventListener('click', closeModal);
 
-  window.addEventListener('keydown', handleKeyDown);
-  refs.modalBackdrop.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-
-function handleKeyDown(event) {
-  if (event.key === 'Escape') {
-    closeModal();
-    // closeRatingModal();
+    refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
+    refs.giveRatingModalBtn.addEventListener('click', openRatingModal);
+    window.addEventListener('keydown', handleKeyDown);
+    refs.modalBackdrop.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  } catch (error) {
+    console.error(error);
   }
 }
- function closeModal() {
-  refs.modalButtonClose.removeEventListener('click', closeModal);
+
+function closeModal() {
+  refs.modalCloseButton.removeEventListener('click', closeModal);
   refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
   window.removeEventListener('keydown', handleKeyDown);
   refs.modalBackdrop.classList.remove('is-open');
@@ -151,9 +141,15 @@ function handleKeyDown(event) {
   youtubeIframe.src = '';
 }
 
- function closeModalOnBackdrop(event) {
+function handleKeyDown(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+}
+
+function closeModalOnBackdrop(event) {
   if (event && event.target === refs.modalBackdrop) {
-    refs.modalButtonClose.removeEventListener('click', closeModal);
+    refs.modalCloseButton.removeEventListener('click', closeModal);
     refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
     window.removeEventListener('keydown', handleKeyDown);
     refs.modalBackdrop.classList.remove('is-open');
@@ -161,6 +157,4 @@ function handleKeyDown(event) {
     const youtubeIframe = document.querySelector('.iframe-video');
     youtubeIframe.src = '';
   }
-
-} 
-
+}

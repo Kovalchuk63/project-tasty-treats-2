@@ -1,3 +1,4 @@
+
 import debounce from 'lodash/debounce';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -160,4 +161,3 @@ document.addEventListener('DOMContentLoaded', () => {
     filterRecipesByTime('Select');
   });
 });
-  

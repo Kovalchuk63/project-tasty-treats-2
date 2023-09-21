@@ -4,27 +4,37 @@ body {
 }
 
 .description-dish {
-    color: rgba(5, 5, 5, 0.8);
+    color: --lt-text-color-opacity-eighty;
     font-size: 12px;
     line-height: 1.33;
-    width: 255px;
-    height: 30px;
+    width: 252px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 }
 
 
 @media screen and (min-width:768px) {
     .description-dish {
+        color: var(--lt-text-color-opacity-eighty);
         font-size: 10px;
         line-height: 1.4;
         width: 120px;
         height: 41px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
     }
 }
 
+@media screen and (min-width:1280px) {
+    .description-dish {
+        width: 155px;
 
+    }
+}
 
 
 .div-popular-list {
@@ -37,6 +47,10 @@ body {
     width: 64px;
     border-radius: 10px;
     height: 64px;
+}
+
+.img-dish:hover {
+    cursor: pointer;
 }
 
 @media screen and (min-width:768px) {
@@ -59,6 +73,12 @@ body {
     line-height: 1.28;
     font-weight: 600;
     padding-bottom: 8px;
+}
+
+.name-dish:hover {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--brand-color);
+    cursor: pointer;
 }
 
 @media screen and (min-width:768px) {
