@@ -9,12 +9,9 @@ const defaults = {
 };
 
 const favouritesCardsList = document.querySelector('.js-all-favourite-cards');
-console.log(favouritesCardsList);
 const heroPicBlock = document.querySelector('.hero-favourites');
-console.log(heroPicBlock);
 const failureBlock = document.querySelector('.failure-block');
-console.log(failureBlock);
-
+const buttonsList = document.querySelector('.js-all-favourites-btn');
 const productsForFavoriteMarkup =
   JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? [];
 console.log(productsForFavoriteMarkup);
@@ -24,6 +21,7 @@ function createFavoriteMarkup(arr) {
 
   if (arr.length === 0) {
     favouritesCardsList.innerHTML = '';
+    buttonsList.style.display = 'none';
     heroPicBlock.classList.add('hero-img-inactive');
     failureBlock.style.paddingTop = '283px';
     failureBlock.style.paddingBottom = '329px';
@@ -114,6 +112,7 @@ function onRemovingFromFavorites(event) {
     productsForFavoriteMarkup.splice(idx, 1);
   }
   if (productsForFavoriteMarkup.length === 0) {
+    buttonsList.style.display = 'none';
     heroPicBlock.classList.add('hero-img-inactive');
     failureBlock.classList.remove('failure-block-hidden');
     failureBlock.style.paddingTop = '283px';
@@ -125,3 +124,62 @@ function onRemovingFromFavorites(event) {
   );
   favouriteDish.remove();
 }
+
+// ======================= BUTTONS ========================
+function onAddingButtons() {
+  const categories = [
+    ...new Set(productsForFavoriteMarkup.map(dish => dish.category)),
+  ];
+  const buttonsList = document.querySelector('.js-all-favourites-btn');
+
+  buttonsList.innerHTML = '';
+
+  const allCategoriesButton = document.createElement('button');
+  allCategoriesButton.classList.add('category-btn', 'btn-all-categories');
+  allCategoriesButton.textContent = 'All Categories';
+  buttonsList.appendChild(allCategoriesButton);
+
+  allCategoriesButton.addEventListener('click', () => showAllCategories());
+
+  categories.forEach(category => {
+    const button = document.createElement('button');
+    button.classList.add('category-btn');
+    button.textContent = category;
+    buttonsList.appendChild(button);
+    console.log(buttonsList);
+
+    button.addEventListener('click', () => filterDishesByCategory(category));
+  });
+  categories.forEach(category => {
+    if (!productsForFavoriteMarkup.some(dish => dish.category === category)) {
+      const buttonToRemove = buttonsList.querySelector(
+        `.category-btn:contains('${category}')`
+      );
+      if (buttonToRemove) {
+        buttonToRemove.remove();
+      }
+    }
+  });
+
+  const jsHeartFavorites = document.querySelectorAll('.js-card-svg-heart');
+  jsHeartFavorites.forEach(jsHeartFavorite => {
+    jsHeartFavorite.addEventListener('click', onRemovingFromFavorites);
+  });
+}
+
+function showAllCategories() {
+  renderFilteredDishes(productsForFavoriteMarkup);
+}
+
+function filterDishesByCategory(category) {
+  const filteredDishes = productsForFavoriteMarkup.filter(
+    dish => dish.category === category
+  );
+  renderFilteredDishes(filteredDishes);
+}
+
+function renderFilteredDishes(filteredDishes) {
+  const favouritesCardsList = document.querySelector('.js-all-favourite-cards');
+  favouritesCardsList.innerHTML = createFavoriteMarkup(filteredDishes);
+}
+onAddingButtons();

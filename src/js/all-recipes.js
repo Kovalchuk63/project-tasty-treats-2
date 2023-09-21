@@ -177,7 +177,8 @@ export function onAddingToFavourites(event) {
   const currentDish = cardsInfo.find(({ _id }) => _id === favouriteDishId);
   const idx = favouriteDishes.findIndex(({ _id }) => _id === favouriteDishId);
   if (idx === -1) {
-    favouriteDishes.push(currentDish);
+    const category = currentDish.category;
+    favouriteDishes.push({ ...currentDish, category });
     svgHeart.classList.replace('card-svg-heart', 'card-svg-heart-checked');
   } else {
     favouriteDishes.splice(idx, 1);

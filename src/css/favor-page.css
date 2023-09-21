@@ -300,3 +300,49 @@
     width: 226px;
   }
 }
+
+.category-btn {
+  display: flex;
+  padding: 14px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+
+  color: rgba(5, 5, 5, 0.3);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+
+  transition: color 250ms cubic-bezier(1, 0, 0, 1),
+    background-color 250ms cubic-bezier(1, 0, 0, 1);
+}
+
+.category-btn:hover,
+.category-btn:focus {
+  background-color: var(--brand-color);
+  color: var(--dt-text-color);
+}
+
+.all-favourites-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 375px) {
+  .all-favourites-btn {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .all-favourites-btn {
+    margin-bottom: 32px;
+  }
+}
