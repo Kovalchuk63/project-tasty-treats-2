@@ -1,9 +1,9 @@
 import sprite from '../sprite.svg';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import common from '../common.json';
 
 const categoriesBtn = document.querySelector('.js-all-categories-btn');
 const cardsList = document.querySelector('.js-card-list');
-export const LS_DISHES_KEY = 'Favourite dishes';
 export let cardsInfo = [];
 
 categoriesBtn.addEventListener('click', onAllCategoryButtonClick);
@@ -18,16 +18,24 @@ export const defaults = {
 };
 
 async function categoriesCardsSearch() {
-  const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
-  const params = new URLSearchParams({
-    limit: 9,
-  });
+  try {
+    const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+    const params = new URLSearchParams({
+      limit: 9,
+    });
 
-  const response = await fetch(`${BASE_URL}/recipes?${params}`);
-  if (!response.ok) {
-    throw new Error(response.statusText);
+    const response = await fetch(`${BASE_URL}/recipes?${params}`);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return await response.json();
+  } catch {
+    Notify.failure('Oops! Something went wrong. Try reloading the page.', {
+      width: '400px',
+      borderRadius: '10px',
+      position: 'right-corner',
+    });
   }
-  return await response.json();
 }
 
 function allCategoriesMarkup(cards) {
@@ -51,7 +59,7 @@ function allCategoriesMarkup(cards) {
       ).join('');
 
       const arrlocalStorage =
-        JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
+        JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? [];
       if (
         arrlocalStorage.find(
           ({ _id: IdlocalStorage }) => IdlocalStorage === _id
@@ -99,7 +107,7 @@ function allCategoriesMarkup(cards) {
           <div class="rating-container">
           ${ratedStarsArray}${notRatedStarsArray}
         </div>
-        <button type="button" class="recipe-btn">See recipe</button>
+        <button type="button" class="recipe-btn" data="${_id}">See recipe</button>
       </div>
     </li>`;
       }
@@ -151,7 +159,7 @@ export function calculationOfRatedStars(rating) {
 // ================================= ADDING TO FAVOURITES ============================================
 
 export let favouriteDishes =
-  JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
+  JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? [];
 
 cardsList.addEventListener('click', onAddingToFavourites);
 
@@ -174,5 +182,5 @@ export function onAddingToFavourites(event) {
     favouriteDishes.splice(idx, 1);
     svgHeart.classList.replace('card-svg-heart-checked', 'card-svg-heart');
   }
-  localStorage.setItem(LS_DISHES_KEY, JSON.stringify(favouriteDishes));
+  localStorage.setItem(common.LS_DISHES_KEY, JSON.stringify(favouriteDishes));
 }
