@@ -234,9 +234,9 @@
   transition: color 250ms cubic-bezier(1, 0, 0, 1);
 }
 
-.recipe-btn:active {
+/* .recipe-btn:active {
   transform: translateY(4px);
-}
+} */
 
 .recipe-btn:hover,
 .recipte-btn:focus {

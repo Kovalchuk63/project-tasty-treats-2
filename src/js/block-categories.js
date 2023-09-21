@@ -1,10 +1,11 @@
 import sprite from '../sprite.svg';
-import { LS_DISHES_KEY } from './all-recipes';
+// import { LS_DISHES_KEY } from './all-recipes';
 import { cardsInfo } from './all-recipes';
 import { defaults } from './all-recipes';
 import { calculationOfRatedStars } from './all-recipes';
 import { favouriteDishes } from './all-recipes';
 import { onAddingToFavourites } from './all-recipes';
+import common from '../common.json';
 
 const selectorsCategories = {
   allCategoriesBtn: document.querySelector('.js-all-categories-btn'),
@@ -105,7 +106,7 @@ function createMarkupCategoriesRecipes(arr) {
       ).join('');
 
       const arrlocalStorage =
-        JSON.parse(localStorage.getItem(LS_DISHES_KEY)) ?? [];
+        JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? [];
       if (
         arrlocalStorage.find(
           ({ _id: IdlocalStorage }) => IdlocalStorage === _id
