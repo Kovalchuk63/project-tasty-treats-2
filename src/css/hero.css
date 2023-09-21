@@ -1,59 +1,6 @@
+/*--------------------------------*/
 /*-------------SWIPER-------------*/
-/*.events {
-  display: flex;
-}
-
-.swiper-card {
-  display: flex;
-}
-
-.cook {
-  height: 442px;
-  width: 137px;
-}
-
-.plate-slide {
-  height: 442px;
-  width: 351px;
-}
-
-.plate {
-  display: block;
-  height: 271px;
-  width: 304px;
-}
-
-.plate-name {
-  font-size: 20px;
-  color: green;
-}
-
-.plate-sub {
-  font-size: 20px;
-  color: green;
-}
-
-.dish {
-  height: 442px;
-  width: 351px;
-}
-
-.slice {
-  width: 5px;
-  height: 5px;
-}
-
-.swiper {
-  width: 50px;
-  height: 50px;
-  border: red 5px solid;
-}
-
-.swiper-slide {
-  width: 50px;
-  height: 50px;
-  border: blue 5px solid;
-}*/
+/*--------------------------------*/
 .swiper-section {
   padding: 0px;
   margin-left: auto;
@@ -85,8 +32,10 @@
 }
 
 .dish-item {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  position: relative;
+  align-items: center;
 
   width: 351px;
   height: 442px;
@@ -101,19 +50,21 @@
 }
 
 .dish-item-title {
-  margin-top: 20px;
+  margin: 0;
   padding: 0;
-  font-size: 10px;
+
+  font-size: 14px;
+
   text-align: center;
   text-transform: uppercase;
   color: var(--lt-text-color-opacity-sixty);
 }
 
 .dish-item-sub {
-  margin-top: 8px;
+  margin-top: 0;
   padding: 0;
 
-  font-size: 6px;
+  font-size: 12px;
 
   text-transform: uppercase;
   text-align: center;
@@ -143,10 +94,6 @@
 .swiper-pagination {
   position: unset !important;
 }
-
-/*.swiper-pagination-bullet {
-  background-color: var(--lt-text-color) !important;
-}*/
 
 .swiper-pagination-bullet-active {
   background-color: var(--brand-color) !important;
@@ -182,7 +129,6 @@
     margin-right: 32px;
   }
 }
-
 
 .hero-title {
   width: 335px;
