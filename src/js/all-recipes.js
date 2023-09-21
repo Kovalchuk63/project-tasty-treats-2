@@ -21,7 +21,7 @@ async function categoriesCardsSearch() {
   try {
     const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
     const params = new URLSearchParams({
-      limit: 9,
+      limit: 12,
     });
 
     const response = await fetch(`${BASE_URL}/recipes?${params}`);
@@ -39,6 +39,7 @@ async function categoriesCardsSearch() {
 }
 
 function allCategoriesMarkup(cards) {
+  console.log(cards);
   const markup = cards.results
     .map(({ preview, title, description, rating, _id }) => {
       const ratedStars = calculationOfRatedStars(rating);

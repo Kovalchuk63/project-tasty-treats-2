@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: start;
   margin-bottom: 40px;
+  margin-top: 14px;
   padding: 0;
 }
 
@@ -105,7 +106,6 @@
   top: 16px;
   right: 16px;
   z-index: 100;
-  opacity: 0.5;
   stroke: var(--dt-text-color);
   stroke-width: 2;
   stroke-linecap: round;
