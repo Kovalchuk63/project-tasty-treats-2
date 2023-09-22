@@ -39,7 +39,6 @@ async function categoriesCardsSearch() {
 }
 
 function allCategoriesMarkup(cards) {
-  console.log(cards);
   const markup = cards.results
     .map(({ preview, title, description, rating, _id }) => {
       const ratedStars = calculationOfRatedStars(rating);
@@ -125,7 +124,6 @@ function onAllCategoryButtonClick() {
       cardsList.innerHTML = markup;
     })
     .catch(() => {
-      console.log(error.message);
       Notify.failure('Oops! Something went wrong. Try reloading the page.', {
         width: '400px',
         borderRadius: '10px',
@@ -141,7 +139,6 @@ async function loadAllCategories() {
     const markup = allCategoriesMarkup(cards);
     cardsList.innerHTML = markup;
   } catch (error) {
-    console.log(error.message);
     Notify.failure('Oops! Something went wrong. Try reloading the page.', {
       width: '400px',
       borderRadius: '10px',
@@ -153,7 +150,7 @@ async function loadAllCategories() {
 // ============================START RATING====================
 
 export function calculationOfRatedStars(rating) {
-  const ratedStars = Math.floor(rating / 2);
+  const ratedStars = Math.round(rating / 1);
   return ratedStars;
 }
 
@@ -170,15 +167,13 @@ export function onAddingToFavourites(event) {
     return;
   }
   const favouriteDish = event.target.closest('.card-item');
-  console.log(favouriteDish);
 
   const favouriteDishId = favouriteDish.dataset.id;
-  console.log(favouriteDishId);
   const currentDish = cardsInfo.find(({ _id }) => _id === favouriteDishId);
   const idx = favouriteDishes.findIndex(({ _id }) => _id === favouriteDishId);
   if (idx === -1) {
     const category = currentDish.category;
-    favouriteDishes.push({ ...currentDish, category });
+    favouriteDishes.push(currentDish);
     svgHeart.classList.replace('card-svg-heart', 'card-svg-heart-checked');
   } else {
     favouriteDishes.splice(idx, 1);

@@ -1,27 +1,78 @@
 import sprite from '../sprite.svg';
 import common from '../common.json';
-
 const defaults = {
   preview: '../img/no-image-icon-23485.png',
   title: 'no title',
   description: 'no description',
   rating: 'xx',
 };
-
 const favouritesCardsList = document.querySelector('.js-all-favourite-cards');
 const heroPicBlock = document.querySelector('.hero-favourites');
 const failureBlock = document.querySelector('.failure-block');
-const buttonsList = document.querySelector('.js-all-favourites-btn');
 const productsForFavoriteMarkup =
   JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? [];
-console.log(productsForFavoriteMarkup);
 
+onFavoritePageLoad();
+// /=============================================== 1
+let arrBtnFavor = [];
+const containerFavorBtn = document.querySelector('.js-all-favourites-btn');
+const cardBtnsFavor = document.querySelector('.card-favor-btn');
+if (productsForFavoriteMarkup.length > 0) {
+  containerFavorBtn.insertAdjacentHTML('afterbegin', createMarkupFavorBtn());
+}
+function createMarkupFavorBtn() {
+  return ` <button class="btn-favor js-btn-favor">All categories</button>`;
+}
+const allBtnFavor = document.querySelector('.js-btn-favor');
+//===============================================/1
+//=============================================== 2
+cardBtnsFavor.insertAdjacentHTML(
+  'beforeend',
+  createMarkupAllFavorBtn(productsForFavoriteMarkup)
+);
+function createMarkupAllFavorBtn(arr) {
+  const arrUniqueelements = arr
+    .map(({ category }) => category)
+    .filter((elem, idx, array) => array.indexOf(elem) === idx);
+  return arrUniqueelements
+    .map(elem => {
+      arrBtnFavor.push(elem);
+      return `<button class="btn-favor js-btns-favor" name="${elem.toLowerCase()}">${elem}</button>`;
+    })
+    .join('');
+}
+//===============================================/2
+//===============================================3
+
+cardBtnsFavor.addEventListener('click', handlerClickSort);
+function handlerClickSort(evt) {
+  const categoryBtn = evt.target.textContent;
+  const newArrCategoryBtn = productsForFavoriteMarkup.filter(
+    ({ category }) => category === categoryBtn
+  );
+  favouritesCardsList.innerHTML = createFavoriteMarkup(newArrCategoryBtn);
+  cardBtnsFavor.innerHTML = `<button class="btn-favor js-btns-favor" name="${categoryBtn.toLowerCase()}">${categoryBtn}</button>`;
+}
+//===============================================/3
+//=================================================4
+allBtnFavor.addEventListener('click', handlerClickAllCategoriesBtnFavor);
+function handlerClickAllCategoriesBtnFavor() {
+  favouritesCardsList.innerHTML = createFavoriteMarkup(
+    productsForFavoriteMarkup
+  );
+  cardBtnsFavor.innerHTML = createMarkupAllFavorBtnEnd(arrBtnFavor);
+}
+function createMarkupAllFavorBtnEnd(arr) {
+  return arr
+    .map(
+      elem =>
+        `<button class="btn-favor js-btns-favor" name="${elem.toLowerCase()}">${elem}</button>`
+    )
+    .join('');
+}
+//=================================================/4
 function createFavoriteMarkup(arr) {
-  console.log(arr);
-
   if (arr.length === 0) {
-    favouritesCardsList.innerHTML = '';
-    buttonsList.style.display = 'none';
     heroPicBlock.classList.add('hero-img-inactive');
     failureBlock.style.paddingTop = '283px';
     failureBlock.style.paddingBottom = '329px';
@@ -40,7 +91,6 @@ function createFavoriteMarkup(arr) {
               <use href="${sprite}#icon-Star"></use>
             </svg>`
         ).join('');
-
         const notRatedStarsArray = Array.from(
           { length: 5 - ratedStars },
           () =>
@@ -48,7 +98,6 @@ function createFavoriteMarkup(arr) {
               <use href="${sprite}#icon-Star"></use>
             </svg>`
         ).join('');
-
         return `<li class="card-item-fav" data-id=${_id}>
           <svg class="card-svg-heart-checked js-card-svg-heart" width="22px" height="22px">
             <use href="${sprite}#icon-heart"></use>
@@ -80,30 +129,34 @@ favouritesCardsList.insertAdjacentHTML(
   'beforeend',
   createFavoriteMarkup(productsForFavoriteMarkup)
 );
-
 createFavoriteMarkup(productsForFavoriteMarkup);
-
 export function calculationOfRatedStars(rating) {
   const ratedStars = Math.floor(rating / 2);
   return ratedStars;
 }
-
 // =================on removeing from fav =============
-
 const jsHeartFavorites = document.querySelectorAll('.js-card-svg-heart');
 jsHeartFavorites.forEach(jsHeartFavorite => {
   jsHeartFavorite.addEventListener('click', onRemovingFromFavorites);
 });
-
 function onRemovingFromFavorites(event) {
   const svgHeart = event.target.closest('.js-card-svg-heart');
   if (!svgHeart) {
     return;
   }
-
   const favouriteDish = svgHeart.closest('.card-item-fav');
   const favouriteDishId = favouriteDish.dataset.id;
 
+  //=================================================5
+  const arrTargetFavor =
+    JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? [];
+  const targetProductFavor = arrTargetFavor.find(
+    ({ _id }) => _id === favouriteDishId
+  );
+  const targetBtnArr = document.getElementsByName(
+    `${targetProductFavor.category.toLowerCase()}`
+  );
+  //=================================================/5
   const idx = productsForFavoriteMarkup.findIndex(
     ({ _id }) => _id === favouriteDishId
   );
@@ -111,7 +164,7 @@ function onRemovingFromFavorites(event) {
     productsForFavoriteMarkup.splice(idx, 1);
   }
   if (productsForFavoriteMarkup.length === 0) {
-    buttonsList.style.display = 'none';
+    containerFavorBtn.style.display = 'none';
     heroPicBlock.classList.add('hero-img-inactive');
     failureBlock.classList.remove('failure-block-hidden');
     failureBlock.style.paddingTop = '283px';
@@ -121,65 +174,27 @@ function onRemovingFromFavorites(event) {
     common.LS_DISHES_KEY,
     JSON.stringify(productsForFavoriteMarkup)
   );
+  //===================================================================6
+  if (
+    (JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? []).length === 0
+  ) {
+    allBtnFavor.classList.add('btn-favor-hidden');
+  }
+  if (
+    !(JSON.parse(localStorage.getItem(common.LS_DISHES_KEY)) ?? []).find(
+      ({ category: categoryProduct }) =>
+        categoryProduct === targetProductFavor.category
+    )
+  ) {
+    targetBtnArr[0].classList.add('btn-favor-hidden');
+  }
+  //=====================================================================/6
   favouriteDish.remove();
-  onAddingButtons();
 }
 
-// ======================= BUTTONS ========================
-function onAddingButtons() {
-  const categories = [
-    ...new Set(productsForFavoriteMarkup.map(dish => dish.category)),
-  ];
-  const buttonsList = document.querySelector('.js-all-favourites-btn');
-
-  buttonsList.innerHTML = '';
-
-  const allCategoriesButton = document.createElement('button');
-  allCategoriesButton.classList.add('category-btn', 'btn-all-categories');
-  allCategoriesButton.textContent = 'All Categories';
-  buttonsList.appendChild(allCategoriesButton);
-
-  allCategoriesButton.addEventListener('click', () => showAllCategories());
-
-  categories.forEach(category => {
-    const button = document.createElement('button');
-    button.classList.add('category-btn');
-    button.textContent = category;
-    buttonsList.appendChild(button);
-    console.log(buttonsList);
-
-    button.addEventListener('click', () => filterDishesByCategory(category));
-  });
-  categories.forEach(category => {
-    if (!productsForFavoriteMarkup.some(dish => dish.category === category)) {
-      const buttonToRemove = buttonsList.querySelector(
-        `.category-btn:contains('${category}')`
-      );
-      if (buttonToRemove) {
-        buttonToRemove.remove();
-      }
-    }
-  });
-
-  const jsHeartFavorites = document.querySelectorAll('.js-card-svg-heart');
-  jsHeartFavorites.forEach(jsHeartFavorite => {
-    jsHeartFavorite.addEventListener('click', onRemovingFromFavorites);
-  });
+function onFavoritePageLoad() {
+  heroPicBlock.classList.add('hero-img-inactive');
+  failureBlock.style.paddingTop = '283px';
+  failureBlock.style.paddingBottom = '329px';
+  failureBlock.classList.remove('failure-block-hidden');
 }
-
-function showAllCategories() {
-  renderFilteredDishes(productsForFavoriteMarkup);
-}
-
-function filterDishesByCategory(category) {
-  const filteredDishes = productsForFavoriteMarkup.filter(
-    dish => dish.category === category
-  );
-  renderFilteredDishes(filteredDishes);
-}
-
-function renderFilteredDishes(filteredDishes) {
-  const favouritesCardsList = document.querySelector('.js-all-favourite-cards');
-  favouritesCardsList.innerHTML = createFavoriteMarkup(filteredDishes);
-}
-onAddingButtons();
