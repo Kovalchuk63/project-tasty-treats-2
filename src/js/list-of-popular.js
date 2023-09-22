@@ -26,11 +26,11 @@ serviceRecype()
 
 function createMarkupCard(arr) {
     return arr.map(({ _id, preview, title, description }) => {
-        return `<li key="${_id}" class="popular-recipe-item ">            
+        return `<div key="${_id}" class="popular-recipe-item ">            
         <img class="img-dish" src="${preview}" alt="${title}"> 
         <div class ="div-popular-list">
         <h3 class="name-dish">${title.toUpperCase()}</h3>
         <p class="description-dish">${description}</p>
         </div>
-         </li>`;
+         </div>`;
               }).join('')}
