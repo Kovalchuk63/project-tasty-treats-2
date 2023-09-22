@@ -16,38 +16,37 @@
       >tasty<span class="logo-color">treats.</span>
     </a>
     <div class="header-btn-box">
-        <a
-          data-modal-open
-          class="shopping-link link"
-          rel="noopener noreferrer"
-          aria-label="shopping-card"
+      <a
+        href="tel:+380730000000"
+        class="shopping-link link"
+        rel="noopener noreferrer"
+        aria-label="shopping-card"
+      >
+        <svg class="shopping-icon" width="24" height="24">
+          <use href="sprite.svg#icon-bag"></use>
+        </svg>
+      </a>
+      <!-- Burger mobile -->
+      <button
+        class="burger-menu js-open-menu"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="burger-menu-icon" width="32" height="32">
+          <use href="sprite.svg#icon-burger"></use>
+        </svg>
+      </button>
+      <!-- Toggle -->
+
+      <div class="theme-switcher main js-switcher">
+        <input type="checkbox" class="input-switcher" id="switch" /><label
+          class="input-label"
+          for="switch"
+          >Toggle</label
         >
-          <svg class="shopping-icon" width="24" height="24">
-            <use href="sprite.svg#icon-bag"></use>
-          </svg>
-        </a>
-        <!-- Burger mobile -->
-        <button
-          class="burger-menu js-open-menu"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <svg class="burger-menu-icon" width="32" height="32">
-            <use href="sprite.svg#icon-burger"></use>
-          </svg>
-        </button>
-        <!-- Toggle -->
-        
-        <div class="theme-switcher main js-switcher">
-          <input type="checkbox" class="input-switcher" id="switch" /><label
-            class="input-label"
-            for="switch"
-            >Toggle</label
-          >
-        </div>
       </div>
-    </nav>
+    </div>
   </div>
 
   <!-- Mobile window -->
@@ -82,14 +81,9 @@
 
       <!-- Toggle-switch-burger -->
       <li class="theme-switcher burger">
-        <input
-          type="checkbox"
-          class="input-switcher"
-          id="mobile-switch"
-        />
+        <input type="checkbox" class="input-switcher" id="mobile-switch" />
         <label class="input-label" for="mobile-switch"></label>
       </li>
-      
     </ul>
   </div>
 </section>
