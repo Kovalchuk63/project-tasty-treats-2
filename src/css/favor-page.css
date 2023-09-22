@@ -32,6 +32,8 @@
   .hero-img {
     background-color: #be832a;
     background: url('../img/favorite_tab.jpg');
+    width: 704px;
+    height: 356px;
   }
 }
 
@@ -54,6 +56,8 @@
   .hero-img {
     background-color: #be832a;
     background-image: url('../img/favorite_desk.jpg');
+    width: 1080px;
+    height: 356px;
   }
 }
 
@@ -70,9 +74,10 @@
     background-position: center;
   }
 }
-
-.hero-img-inactive {
-  display: none;
+@media screen and (max-width: 767px) {
+  .hero-img-inactive {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -137,6 +142,8 @@
   .failure-block {
     gap: 32px;
     margin-bottom: 319px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .svg-hat {
@@ -162,6 +169,8 @@
 @media screen and (min-width: 1280px) {
   .failure-block {
     margin-bottom: 64px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
 
@@ -298,5 +307,63 @@
 @media screen and (min-width: 1280px) {
   .rating-btn-container-fav {
     width: 226px;
+  }
+}
+
+/* =================buttons================= */
+
+/* Basic styles */
+.all-favourites-btn {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+/* Tablet style >=768px */
+@media only screen and (min-width: 768px) {
+  .all-favourites-btn {
+    margin-bottom: 32px;
+    gap: 15px;
+  }
+}
+/* Basic styles */
+.btn-favor {
+  color: rgba(5, 5, 5, 0.3);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  padding-top: 14px;
+  padding-right: 18px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  display: block;
+  flex-shrink: 0;
+  transition: color var(--transition), background-color var(--transition);
+}
+/* Tablet styles >=768px */
+@media only screen and (min-width: 768px) {
+  .btn-favor {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.btn-favor:hover,
+.btn-favor:hover {
+  color: #f8f8f8;
+  background-color: #9bb537;
+}
+.btn-favor-hidden {
+  display: none;
+}
+.card-favor-btn {
+  display: flex;
+  gap: 12px;
+}
+@media only screen and (min-width: 768px) {
+  .card-favor-btn {
+    gap: 15px;
   }
 }
