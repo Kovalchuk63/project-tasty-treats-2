@@ -32,6 +32,8 @@
   .hero-img {
     background-color: #be832a;
     background: url('../img/favorite_tab.jpg');
+    width: 704px;
+    height: 356px;
   }
 }
 
@@ -54,6 +56,8 @@
   .hero-img {
     background-color: #be832a;
     background-image: url('../img/favorite_desk.jpg');
+    width: 1080px;
+    height: 356px;
   }
 }
 
@@ -70,9 +74,10 @@
     background-position: center;
   }
 }
-
-.hero-img-inactive {
-  display: none;
+@media screen and (max-width: 767px) {
+  .hero-img-inactive {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -137,6 +142,8 @@
   .failure-block {
     gap: 32px;
     margin-bottom: 319px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .svg-hat {
@@ -162,6 +169,8 @@
 @media screen and (min-width: 1280px) {
   .failure-block {
     margin-bottom: 64px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
 

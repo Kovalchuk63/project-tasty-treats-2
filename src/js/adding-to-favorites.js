@@ -103,7 +103,6 @@ function onRemovingFromFavorites(event) {
 
   const favouriteDish = svgHeart.closest('.card-item-fav');
   const favouriteDishId = favouriteDish.dataset.id;
-  console.log(favouriteDishId);
 
   const idx = productsForFavoriteMarkup.findIndex(
     ({ _id }) => _id === favouriteDishId
@@ -123,6 +122,7 @@ function onRemovingFromFavorites(event) {
     JSON.stringify(productsForFavoriteMarkup)
   );
   favouriteDish.remove();
+  onAddingButtons();
 }
 
 // ======================= BUTTONS ========================
