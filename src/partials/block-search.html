@@ -3,7 +3,7 @@
     <h2 class="text-search">Search</h2>
     <div class="con-inp">
       <svg class="svg-search" width="32" height="32">
-        <use  href="sprite.svg#icon-search"></use>
+        <use href="sprite.svg#icon-search"></use>
       </svg>
       <input
         class="inp-search"
@@ -17,13 +17,16 @@
   <div class="item-select time">
     <h2 class="text-search">Time</h2>
     <div class="custom-select">
-      <div class="selected-option js-time">
-        <span class="elem-prev">Select</span>
-        <svg class="search-arrow" width="18" height="18">
-          <use href="sprite.svg#icon-left"></use>
-        </svg>
+      <div class="select-box">
+        <div class="select-container">
+          <select class="js-time">
+            <option value="Select">Select</option>
+          </select>
+          <svg class="search-arrow" width="18" height="18">
+            <use href="sprite.svg#icon-left"></use>
+          </svg>
+        </div>
       </div>
-      <ul class="js-time-list"></ul>
     </div>
   </div>
   <div class="item-select">
@@ -40,7 +43,7 @@
   <div class="item-select">
     <h2 class="text-search">Ingredients</h2>
     <div class="custom-select">
-      <div class=" selected-ing js....">
+      <div class="selected-ing js....">
         <span class="elem-prev">Select</span>
         <svg class="search-arrow" width="18" height="18">
           <use href="sprite.svg#icon-left"></use>
@@ -48,12 +51,12 @@
       </div>
     </div>
   </div>
-  </div>
-  <div class="button-div">
-    <svg class="button-svg" width="18" height="18">
-      <use href="sprite.svg#icon-cross"></use>
-    </svg>
-    <button class="reset-button label-text" type="submit">
-      Reset the filter
-    </button>
+</div>
+<div class="button-div">
+  <svg class="button-svg" width="18" height="18">
+    <use href="sprite.svg#icon-cross"></use>
+  </svg>
+  <button class="reset-button label-text" type="submit">
+    Reset the filter
+  </button>
 </div>
