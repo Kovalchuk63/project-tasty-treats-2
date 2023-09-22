@@ -22,21 +22,3 @@
 //   });
 // })();
 
-
-// Телефонний номер-заглушка
-const phoneNumber = '+380730000000';
-
-// Отримуємо кнопку
-const phoneButton = document.getElementById('phoneButton');
-
-// Додаємо обробник кліку на кнопку
-phoneButton.addEventListener('click', () => {
-    // Викликаємо функцію для обробки номеру
-    callPhoneNumber(phoneNumber);
-});
-
-// Функція для обробки номеру
-function callPhoneNumber(number) {
-    // Використовуємо мета-протокол tel: для ініціювання дзвінка
-    window.location.href = `tel:${number}`;
-}
