@@ -9,7 +9,6 @@
 @import url('./base/reset.css');
 @import url('./base/scroll-fonts.css');
 
-
 @import url('./block-categories.css');
 @import url('./block-list.css');
 @import url('./block-popupar.css');
@@ -25,7 +24,9 @@
 @import url('./favor-header.css');
 @import url('./favor-page.css');
 
-
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/*------------*/
 :root {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -82,7 +83,6 @@
     max-width: 1104px;
     padding: 0 12px;
   }
-
 }
 
 .filter {
