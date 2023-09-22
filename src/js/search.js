@@ -1,9 +1,7 @@
-
 import debounce from 'lodash/debounce';
 
 document.addEventListener('DOMContentLoaded', () => {
   const timeSelect = document.querySelector('.js-time');
-  const timeList = document.querySelector('.js-time-list');
   const keyWord = document.querySelector('.inp-search');
   const cardContainer = document.querySelector('.js-card-list');
   const resetButton = document.querySelector('.reset-button');
@@ -12,58 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let jsonData;
   let titles = [];
-
-  function generateTimeList() {
-    const timeInterval = 5;
-    const maxTime = 160;
-    const timeOptions = [];
-
-    for (let i = timeInterval; i <= maxTime; i += timeInterval) {
-      timeOptions.push(i);
-    }
-
-    return timeOptions;
-  }
-
-  function createDropdown() {
-    const timeOptions = generateTimeList();
-
-    timeOptions.forEach((time) => {
-      const option = document.createElement('li');
-      option.classList.add('option');
-
-      const button = document.createElement('button');
-      button.classList.add('option-item');
-      button.textContent = `${time} min`;
-
-      button.addEventListener('click', () => {
-        timeSelect.textContent = `${time} min`;
-        closeDropdown();
-        filterRecipesByTime(time);
-      });
-
-      option.appendChild(button);
-      timeList.appendChild(option);
-    });
-  }
-
-  function openDropdown() {
-    timeList.classList.add('open');
-  }
-
-  function closeDropdown() {
-    timeList.classList.remove('open');
-  }
-
-  timeSelect.addEventListener('click', () => {
-    if (timeList.classList.contains('open')) {
-      closeDropdown();
-    } else {
-      openDropdown();
-    }
-  });
-
-  createDropdown();
 
   async function fetchData(endpoint) {
     const url = `${BASE_URL}/${endpoint}`;
@@ -120,8 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </li>`;
   }
 
-  function filterRecipesByTime(selectedTime) {
-    const searchInput = keyWord.value.trim().toLowerCase();
+  function filterRecipes(searchInput) {
+    const selectedTime = timeSelect.value;
+    searchInput = searchInput.trim().toLowerCase();
 
     let matchingRecipes = titles;
 
@@ -147,8 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleSearchInput() {
-    const selectedTime = timeSelect.textContent;
-    filterRecipesByTime(selectedTime);
+    filterRecipes(keyWord.value);
   }
 
   fetchData('recipes');
@@ -157,7 +103,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetButton.addEventListener('click', () => {
     keyWord.value = '';
-    timeSelect.textContent = 'Select';
-    filterRecipesByTime('Select');
+    timeSelect.value = 'Select';
+    filterRecipes('');
   });
+
+  // Dynamically generate time options for the select element
+  const timeSelectElement = document.querySelector('.js-time');
+
+  function generateTimeOptions() {
+    const timeInterval = 5;
+    const maxTime = 160;
+
+    for (let i = timeInterval; i <= maxTime; i += timeInterval) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = `${i} min`;
+      timeSelectElement.appendChild(option);
+    }
+  }
+
+  generateTimeOptions();
 });
