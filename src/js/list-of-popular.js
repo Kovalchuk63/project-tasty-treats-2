@@ -34,4 +34,3 @@ function createMarkupCard(arr) {
         </div>
          </li>`;
               }).join('')}
- createMarkupCard();
