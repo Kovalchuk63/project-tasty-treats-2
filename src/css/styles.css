@@ -9,7 +9,6 @@
 @import url('./base/reset.css');
 @import url('./base/scroll.css');
 
-
 @import url('./block-categories.css');
 @import url('./block-list.css');
 @import url('./block-popupar.css');
@@ -24,7 +23,7 @@
 
 @import url('./favor-header.css');
 @import url('./favor-page.css');
-
+@import url('./btn-up.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -82,7 +81,6 @@
     max-width: 1104px;
     padding: 0 12px;
   }
-
 }
 
 .filter {
