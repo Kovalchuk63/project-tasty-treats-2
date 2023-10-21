@@ -7,7 +7,7 @@
 @import url('./base/modern-normalize.css');
 @import url('./base/hidden.css');
 @import url('./base/reset.css');
-@import url('./base/scroll.css');
+@import url('./base/scroll-fonts.css');
 
 @import url('./block-categories.css');
 @import url('./block-list.css');
@@ -25,8 +25,14 @@
 @import url('./favor-page.css');
 @import url('./btn-up.css');
 
+=======
+
+/*import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/*------------*/
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
