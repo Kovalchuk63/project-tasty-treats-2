@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
     "notiflix": "^3.2.6",
     "simplelightbox": "^2.14.2",
     "swiper": "^10.3.0",
