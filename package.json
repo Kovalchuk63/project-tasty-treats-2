@@ -1,11 +1,11 @@
 {
-  "name": "Sweeeet",
+  "name": "project-tasty-treats-2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/Sweeeet/",
+    "build": "vite build --base=/project-tasty-treats-2/",
     "preview": "vite preview"
   },
   "devDependencies": {
