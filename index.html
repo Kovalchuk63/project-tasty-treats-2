@@ -1,257 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--Підключення фавікону-->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/UlEQVR4nO1Uv0scURDeYCEhNmkkIYgISSEmNrmd2QMlheSH2OqfkDT5B9ILQQIpAuK5b1YFG+GqmJ1Z7wrRP8HGyjThkpDmmphoSCAXZvftcrB75u5QsHBg4MF87/vmzZsZx7myXs1swxgJ+sTYIIY/JPCZBAOqeXdTTCXEe4ZxLY4phrFhBFf17tnkofuUGI5JsJVzxt9G8DkxvtBzEcYIfA8ieNI585ScMfSjkrtZn7wRhKX78YuUgPGveoIB44v3QDGKNYKciXB5NCeQkih5YQICL1MBPRdjEhFirOQFtOaCrUDcUqcSEuMr9Y7x0ANbrk8Fl+GXBvXJTp+2vPdoKCklnBYJfIyDO+5EvwJB8l8qcJQLGoZ1+5Gv+xUggSVboiAvEIFnu+O4Enp3eiVfr5VGDOOPuMtCDwpBRrBqu2C3Wl0Y6JZcsUZgL8ketjoCV+rlYWL8mvQzrnZD3mo513Qm7Ax822D31pkXTAjTJHBis1n8n4D+mcWe+BFOdZOUDt3jtG1JYEmzLMxc8E26RgKGOacXCxgWsp3DYNr/RM9pWeIdFcF8T+SZSOTOtC2/92+r3vV30bPBrBkEf/qCs32RZyIf3LJhaNqX7MeeDFNTY855GDGO635pW8tfKMJJ5zzN33l42wgeGMZDHSrnImyFp26qXwj5pbV/uORzn4/DCykAAAAASUVORK5CYII=" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taste Treats</title>
-  
+    <title>TastyTreats.</title>
+    <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEOUlEQVR4nM2Xz28bRRTHc+sNJHoE0qYUDAlFVUFBlOZAgXKD/wAJAYVC+SEuERKcUoGlSkiAqMQBjq1afjQidiLRxqQlaRraJHh/zDom/pXEjn9kvTsbDlB7/EUz9i5rx147loVY6SNbOzvzvjPzZt57fX3/tweWdpJZhFYsDa0hqNAGLJvmfRgljFHtOijZ6ymAWZrhZZRRtQ22oOZCYJLTbQSQuUbDfFDHgKm4kF243te+bRTCKKnAJCe8t4CSvaDkA2aRs4wSvd6wjDLH4EhNqLbXCyFgljrBKBnDtvrcrvyBmepnjuGa0ZIRRmgzijdXczgRMQWnVnMIZaIoF8P/irGFUBXYit7V1hjEzLV3YZFRmGSUUWWsbMh6dcZ80DD+0sP4KJ7GCDGb8nE8jb+Lv6PMqa2IEGHIwbKpjIqxOdyOqdzTsPfavNgre79NpbbckhiwpC/h80QKxxTTky8TSZT0RZSKy0K0I8J2UNsfLDLXKGCr6iiu/XYZz+WXcVwp4mnZ8OQZuYhsfqmlCNsxGSWF+i2wyGuMEsOZvSFjJh3FqUgGxyUdI5KOp8LFjuDf8j5vRdKYSUd2+AQ/6rDUVz19Ynhpy//kko5ecC6WFCKYoUwA0T1tHXL4VuGl4dtb6CXX0it8VQMdCXj8ZmHmiYUCeskb8objC2VTYYyS1tfykfn89pH5PHrJsYVcdRtsZ7RI62v58Gzuz8OzOfSSozeyNQFy7aSpra/lQ9eyvzx2PYtOGAptYiiUafvdizfXk6Wi5Gem7OeXHEzXtQxLO1mmimkfv+lEBI+GNjtiYDyFgfE17++mM5VDV9MjLZ2OWZougoZz+4VxTl3B0JU0Bl0MXE7BN7le927fDwlBq/bBnzcqg1fSH3p6PaNktl6AhJK+jFBMwstzMTwcXINvagP3X4rjwHgKD/yUwr7vE847zoPBdafdN7nBv2G+qfWrvqm1FzyN84cHBlDyPqOqnxlKQAgQV/Ai7hR+Q//FGA4G1nDvhRj2/5gU8P/2Ozei/bJor/R186B4++5q6A2LGFDM3xIDD9SM8plz+P/+S9VfN/3fJQRC4GQHYdhZAVN7p8zDsCFP2oGIr8JCPFxv5GK8SoPhZpyXpK/u6IujZVOqoQiwrT7b1zwNIztC8fllgvu+TXTFhSXVyQ2c8y/CvUjNnncJ0HQnd3PnA4aMT6aj2D+W6YpPp1d2REI7c+Yr7giARV5nFjFdyaMj4u1AHAfOZrvidDBeb7w6ex4HfvVMz4HoHmYqAd7plYkkDn6R6wret5rcqJ2F4ToBFgnylZhbXcEj3+Tw0NeFXcH73PgjYt/7nYVhVKsiZysafcJGOKiTKdf+N9YHDbUBdzzu7J5Lz9zO2HFxsrMgaVaUOJUR1d5rLYCS2U5qwtpRalGStS7LhACv4gTOlaz5ew85s+vK6L94/gEDOrwtbBjHIAAAAABJRU5ErkJggg==" />
+    <!--Підключення стилів-->
+    
 
-  <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <!--Підключення js-->
+    
+    <script type="module" crossorigin src="/project-tasty-treats-2/assets/index-1b7e0532.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-tasty-treats-2/assets/notiflix-notify-aio-6dfa73ff.js">
+    <link rel="stylesheet" href="/project-tasty-treats-2/assets/notiflix-notify-aio-beb435a3.css">
+    <link rel="stylesheet" href="/project-tasty-treats-2/assets/index-cfc9f3e6.css">
+  </head>
 
-  <script type="module" crossorigin src="/project-tasty-treats-2/assets/index-b920aa62.js"></script>
-  <link rel="modulepreload" crossorigin href="/project-tasty-treats-2/assets/common-aff69cea.js">
-  <link rel="stylesheet" href="/project-tasty-treats-2/assets/common-d07b0ccb.css">
-  <link rel="stylesheet" href="/project-tasty-treats-2/assets/index-78e1d472.css">
-</head>
-
-<body>
-  <header>
-    <section class="header container">
-  <div class="header-container" id="header">
-    <!-- Navigation -->
-    <nav class="nav-header">
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a href="./index.html" class="nav-link current link">Home</a>
-        </li>
-        <li class="nav-item current">
-          <a href="./favorite.html" class="nav-link">Favorites</a>
-        </li>
-      </ul>
-    </nav>
-    <!-- Logo -->
-    <a href="./index.html" class="logo-header link"
-      >tasty<span class="logo-color">treats.</span>
-    </a>
-    <div class="header-btn-box">
-      <a
-        href="tel:+380730000000"
-        class="shopping-link link"
-        rel="noopener noreferrer"
-        aria-label="shopping-card"
-      >
-        <svg class="shopping-icon" width="24" height="24">
-          <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-bag"></use>
-        </svg>
+  <body>
+    <!--Підключення хедера-->
+    <header class="header">
+  <div class="container header-container">
+    <div class="menu-desc">
+      <nav class="page-nav">
+        <ul class="menu list">
+          <li class="menu-item">
+            <a class="menu-link link-home current" href="./index.html">Home</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link link-fav" href="./favorites-page.html"
+              >Favorites</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <a class="logo-link" href="./index.html" aria-label="logotype">
+        <span class="logo-begin">tasty</span
+        ><span class="logo-end">treats.</span>
       </a>
-      <!-- Burger mobile -->
-      <button
-        class="burger-menu js-open-menu"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg class="burger-menu-icon" width="32" height="32">
-          <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-burger"></use>
-        </svg>
-      </button>
-      <!-- Toggle -->
+      <div class="btn-order-desk">
+        <button class="order-btn" type="button" aria-label="basket">
+          <svg class="order-icon" width="24px" height="24px">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#cart"></use>
+          </svg>
+        </button>
+        <label class="switch-desk">
+          <input
+            class="switch__input switch__input-desk"
+            aria-label="day/night theme"
+            type="checkbox"
+          />
+          <span class="switch__slider"> </span>
+        </label>
+      </div>
+    </div>
 
-      <div class="theme-switcher main js-switcher">
-        <input type="checkbox" class="input-switcher" id="switch" /><label
-          class="input-label"
-          for="switch"
-          >Toggle</label
+    <div class="mobile-icons">
+      <div class="logo-link-mob-container">
+        <a class="logo-link-mob" aria-label="logotype" href="./index.html">
+          <span class="logo-begin-mob">tasty</span
+          ><span class="logo-end-mob">treats.</span>
+        </a>
+      </div>
+
+      <div class="mob-btn">
+        <button
+          class="order-btn-mob order-btn"
+          type="button"
+          aria-label="basket"
         >
+          <svg class="order-icon" width="24px" height="24px">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#cart"></use>
+          </svg>
+        </button>
+        <button class="burger-btn" type="button" aria-label="burger menu">
+          <svg class="burger" width="32px" height="32px">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#burger-menu"></use>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Mobile window -->
-
-  <div class="menu-container js-menu-container" id="mobile-menu">
-    <button class="menu-toggle js-close-menu">
-      <svg
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M4.293 4.293a1 1 0 011.414 0L10
-          8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0
-          01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10
-          4.293 5.707a1 1 0 010-1.414z"
-          clip-rule="evenodd"
-        ></path>
+  <div class="mobile-menu is-hidden">
+    <button
+      class="mob-menu-close-btn"
+      type="button"
+      aria-label="close menu button"
+    >
+      <svg class="mobile-menu-close-icon" width="32px" height="32px">
+        <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
       </svg>
     </button>
+    <nav class="mobile-nav">
+      <ul class="mob-menu-list">
+        <li class="mob-menu-item">
+          <a
+            class="mob-menu-link mob-menu-link-home active-mob-nav"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="mob-menu-item">
+          <a
+            class="mob-menu-link mob-menu-link-fav"
+            href="./favorites-page.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <label class="label-check">
+      <span class="switch-mob">
+        <input
+          class="switch__input switch__input__mob"
+          type="checkbox"
+          aria-label="day/night theme"
+        />
+        <span class="switch__slider"> </span>
+      </span>
+    </label>
+  </div>
+</header>
 
-    <ul class="mobile-menu">
-      <li class="nav-item-burger">
-        <a class="nav-link current link" href="./index.html">Home</a>
-      </li>
-      <li class="nav-item-burger">
-        <a href="./favorite.html" class="nav-link link">Favorites</a>
-      </li>
+    <main>
+      <!--Підключення секцій-->
+      <section class="section-hero container">
+    <div class="hero-left">
+        <h1 class="hero-title">
+            Learn to Cook
+            <span class="hero-title-active">Tasty Treats' </span> Customizable Masterclass
+        </h1>
+        <p class="hero-block-text">
+            TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step
+            Video Guides.
+        </p>
+        <button class="hero-btn btn hero-btn-js" type="button">Order now</button>
+    </div>
+    <div class="swiper hero-swiper js-swiper-hero">
+        <div class="swiper-wrapper js-hero-swiper-wrapper"></div>
+        <div class="swiper-pagination swiper-pagination-hero"></div>
+    </div>
+</section>
 
-      <!-- Toggle-switch-burger -->
-      <li class="theme-switcher burger">
-        <input type="checkbox" class="input-switcher" id="mobile-switch" />
-        <label class="input-label" for="mobile-switch"></label>
+      <div class="general-section container">
+        <aside class="sidebar">
+          <section class="section categories">
+  <h2 class="visually-hidden">Categoties section</h2>
+  <div class="categories-container">
+    <button
+      class="categories-btn all-categories-active btn-all-js"
+      type="button"
+    >
+      All categories
+    </button>
+    <ul class="button-container scroll-container categories-list">
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Beef</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Breakfast</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Chicken</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Dessert</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Goat</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Lamb</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Miscellaneous</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Pasta</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Pork</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Seafood</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Side</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Starter</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Vegan</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Vegetarian</button>
       </li>
     </ul>
   </div>
 </section>
 
-  </header>
-  <main>
-
-    <section class="hero">
-  <div class="container hero-container">
-    <div class="hero-title-block">
-      <h2 class="hero-title">
-        Learn to Cook
-        <span class="hero-title-span">Tasty<br />Treats'</span>
-        Customizable<br />Masterclass
-      </h2>
-      <p class="hero-descr">
-        TastyTreats - Customize Your Meal with Ingredient<br />Options and
-        Step-by-Step Video Guides.
-      </p>
-      <a href="tel:+380730000000" class="hero-btn">Order now</a>
-    </div>
-    <div class=" swiper-section">
-      <div class="swiper swiper-hero">
-        <div class="swiper-wrapper"></div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
+          <section class="popular-recipes">
+  <div class="popular-recipes-container">
+    <h3 class="popular-recipes-title">Popular recipes</h3>
+    <ul class="popular-recipes-list">
+      <!-- <li class="popular-recipe-item">
+          <div class="popular-recipe-img-wrapper">
+            <img src="" alt="popular recipe" class="popular-recipe-img" loading="lazy"/>
+          </div>
+          <div class="popular-recipe-info">
+            <h4 class="popular-recipe-title">French Omelette</h4>
+            <p class="popular-recipe-text">
+              A French omelette is a simple yet elegant dish made with whisked eggs, butter, salt, and pepper, cooked gently until light and fluffy, then folded over and served for a comforting and refined meal any time of day.
+            </p>
+          </div>
+        </li>
+        <li class="popular-recipe-item">
+          <div class="popular-recipe-img-wrapper">
+            <img src="" alt="popular recipe" class="popular-recipe-img" loading="lazy" />
+          </div>
+          <div class="popular-recipe-info">
+            <h4 class="popular-recipe-title">Squash linguine</h4>
+            <p class="popular-recipe-text">
+              Squash linguine is a flavorful and nutritious pasta alternative made
+              with spiralized squash noodles, paired with a variety of delicious
+              sauces and toppings for a satisfying and healthy meal.
+            </p>
+          </div>
+        </li> -->
+    </ul>
   </div>
 </section>
 
-    <section class="filter">
-      <div class="container cont-div">
-        <div class="left-side">
-          <div class="all-categories-card">
-  <button
-    class="all-categories-btn all-categories-btn-active js-all-categories-btn"
-  >
-    All categories
-  </button>
-  <div class="categories-btn-card js-categories-btn-card"></div>
-</div>
-
-          <section id="popular-recipes">
-    <h2 class="name-popular">POPULAR RECIPES</h2>
-    <div class="js-popular-recipes popular-list">
-        <div class="div-popular-list">
+        </aside>
+        <div class="general-search">
+          <section class="search-section">
+  <h2 class="visually-hidden">Search filter</h2>
+  <div>
+    <div class="filter-wrapper">
+      <form class="search-form-js">
+        <div class="search-form">
+          <label class="search-titles" for="search-input">Search</label>
+          <div class="search-input-wrapper">
+            <input
+              type="text"
+              id="search-input"
+              name="search"
+              placeholder="Enter text"
+              minlength="3"
+            />
+            <svg
+              class="search-icon"
+              width="18"
+              height="18"
+              fill="var(--txt-cl-50-light-theme)"
+            >
+              <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#search"></use>
+            </svg>
+          </div>
         </div>
+        <ul class="filter-list">
+          <li class="filter-item">
+            <label class="search-titles" for="time-select">Time</label>
+            <select id="time-select" name="time">
+              <option class="option-def-time" selected disabled>0 min</option>
+            </select>
+          </li>
+          <li class="filter-item">
+            <label class="search-titles" for="area-select">Area</label>
+            <select id="area-select" name="area">
+              <option class="option-def-area" selected disabled>Region</option>
+            </select>
+          </li>
+          <li class="filter-item">
+            <label class="search-titles" for="ingredients-select"
+              >Ingredients</label
+            >
+            <select id="ingredients-select" name="ingredients">
+              <option class="option-def-ingr" selected disabled>Product</option>
+            </select>
+          </li>
+        </ul>
+      </form>
     </div>
-</section>
-        </div>
-        <div class="right-side">
-          <div class="con-select">
-  <div class="con-search">
-    <h2 class="text-search">Search</h2>
-    <div class="con-inp">
-      <svg class="svg-search" width="32" height="32">
-        <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-search"></use>
-      </svg>
-      <input
-        class="inp-search"
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Enter Text"
-      />
-    </div>
-  </div>
-  <div class="item-select time">
-    <h2 class="text-search">Time</h2>
-    <div class="custom-select">
-      <div class="select-box">
-        <div class="select-container">
-          <select class="js-time">
-            <option value="Select">Select</option>
-          </select>
-          <svg class="search-arrow" width="18" height="18">
-            <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-left"></use>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="item-select">
-    <h2 class="text-search">Area</h2>
-    <div class="custom-select">
-      <div class="selected-area js....">
-        <span class="elem-prev">Select</span>
-        <svg class="search-arrow" width="18" height="18">
-          <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-left"></use>
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div class="item-select">
-    <h2 class="text-search">Ingredients</h2>
-    <div class="custom-select">
-      <div class="selected-ing js....">
-        <span class="elem-prev">Select</span>
-        <svg class="search-arrow" width="18" height="18">
-          <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-left"></use>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="button-div">
-  <svg class="button-svg" width="18" height="18">
-    <use href="/project-tasty-treats-2/assets/sprite-5a36ecde.svg#icon-cross"></use>
-  </svg>
-  <button class="reset-button label-text" type="submit">
-    Reset the filter
-  </button>
-</div>
-          <ul class="card-list js-card-list"></ul>
-
-          
-  <div class="modal-backdrop backdrop">
-    <div class="modal-recipe-card">
-      <button type="button" class="modal-button-close">
-        <svg class="modal-button-icon" width="20" height="20">
-          <use href="${sprite}#icon-modal-cross"></use>
+    <div class="btn-reset-thumb">
+      <button class="reset-btn" type="button" aria-label="reset-filter-button">
+        <svg class="reset-filter-icon" width="16" height="16">
+          <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
         </svg>
       </button>
+      <p class="reset-desc">Reset the filter</p>
+    </div>
+  </div>
+</section>
 
-      <div class="card-markup-modal"></div>
+          <section class="cards-grid">
+  <div>
+    <h2 class="visually-hidden">List of recipes</h2>
+    <ul class="card-list card-set js-card-list">
+      <!-- Карточка для генерації сітки з беккенду -->
+    </ul>
+  </div>
+</section>
 
-      <div class="extra-modal-button">
-        <button type="button" class="modal-add-favorite">
-          Add to favorite
-        </button>
-        <button type="button" class="modal-give-rating">Give a rating</button>
+        </div>
       </div>
+
+      <section class="modal-overlay visually-hidden">
+  <div class="modal-new-order modal-container">
+    <button type="button" class="modal-close-btn new-order-btn">
+      <svg class="modal-close-svg">
+        <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
+      </svg>
+    </button>
+    <h3 class="modal-title">ORDER NOW</h3>
+
+    <form class="modal-form form form-js" name="modal_form">
+      <div class="form-wrapper">
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_name">Name</label>
+
+          <input
+            class="form-field"
+            type="text"
+            name="modal_name"
+            id="modal_name"
+            placeholder="John"
+            pattern="[A-Za-z]{3,50}"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_phone">Phone number</label>
+
+          <input
+            class="form-field"
+            type="tel"
+            name="modal_phone"
+            id="modal_phone"
+            placeholder="+380"
+            pattern="^\+380\d{9}$"
+            
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_email">Email</label>
+
+          <input
+            class="form-field"
+            type="email"
+            name="modal_email"
+            id="modal_email"
+            placeholder="email@gmail.com"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_comment">Comment</label>
+          <textarea
+            
+            class="form-field form-field-comment"
+            name="modal_comment"
+            id="modal_comment"
+          >
+          </textarea>
+        </div>
+      </div>
+
+      <button class="form-btn btn" type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+      <div class="modal-backdrop backdrop-modal">
+  <div class="modal-wrap">
+    <div class="modal-recipe-card">
+      <button class="modal-btn-close">
+        <svg class="modal-button-icon">
+          <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
+        </svg>
+      </button>
+      <div class="modal-card-markup"></div>
+    </div>
   </div>
 </div>
 
+      <div class="modal-overlay visually-hidden modal-rating-js">
+  <div class="modal-container modal-rating-form">
+    <button class="close-rating modal-close-btn">
+      <svg class="close-rating-svg modal-close-svg">
+        <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
+      </svg>
+    </button>
 
+    <p class="rating-heading">Rating</p>
+    <div class="rating-amount">
+      <span class="rating-result">0,0</span>
+      <div class="rating-stars-container">
+        <i class="rating-star">
+          <svg class="rating-star-svg" data-rating="1">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#star" width="24" height="24"></use>
+          </svg>
+        </i>
+        <i class="rating-star">
+          <svg class="rating-star-svg" data-rating="2">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#star" width="24" height="24"></use>
+          </svg>
+        </i>
+        <i class="rating-star">
+          <svg class="rating-star-svg" data-rating="3">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#star" width="24" height="24"></use>
+          </svg>
+        </i>
+        <i class="rating-star">
+          <svg class="rating-star-svg" data-rating="4">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#star" width="24" height="24"></use>
+          </svg>
+        </i>
+        <i class="rating-star">
+          <svg class="rating-star-svg" data-rating="5">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#star" width="24" height="24"></use>
+          </svg>
+        </i>
+      </div>
+    </div>
 
-  
-  
+    <input
+      type="email"
+      name="user_email"
+      class="rating-form-input"
+      placeholder="Enter email"
+      required
+      pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+    />
+    <button type="submit" class="rating-send btn">Send</button>
+  </div>
+</div>
 
+    </main>
+    <footer class="footer js-fav-footer">
+  <div class="container container-footer">
+    <div class="pagination-panel">
+      <div class="nav-btns">
+        <button class="pagination-btn first-page-btn">
+          <svg class="arrow-pag-icon left-arrow-icon" width="20" height="20">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-left"></use>
+          </svg>
+          <svg class="arrow-pag-icon right-arrow-icon" width="20" height="20">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-left"></use>
+          </svg>
+        </button>
+        <button class="pagination-btn prev-btn">
+          <svg class="arrow-pag-icon" width="20" height="20">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-left"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="pages-btns-box">
+        <button class="pagination-btn pages-btn">1</button>
+        <button class="pagination-btn pages-btn">2</button>
+        <button class="pagination-btn pages-btn pag-btn-hidden">3</button>
+        <button class="pagination-btn pages-btn dots-btn">...</button>
+      </div>
+      <div class="nav-btns">
+        <button class="pagination-btn next-btn">
+          <svg class="arrow-pag-icon" width="20" height="20">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-right"></use>
+          </svg>
+        </button>
+        <button class="pagination-btn last-page-btn">
+          <svg class="arrow-pag-icon right-arrow-icon" width="20" height="20">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-right"></use>
+          </svg>
+          <svg class="arrow-pag-icon left-arrow-icon" width="20" height="20">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-right"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
 
-
-</body>
-
+  </body>
 </html>

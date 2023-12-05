@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites Page</title>
+    <!--Підключення стилів-->
+    
+    
+    <!--Підключення js-->
+    
+    <script type="module" crossorigin src="/project-tasty-treats-2/assets/favorites-page-f37928ff.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-tasty-treats-2/assets/notiflix-notify-aio-6dfa73ff.js">
+    <link rel="stylesheet" href="/project-tasty-treats-2/assets/notiflix-notify-aio-beb435a3.css">
+    <link rel="stylesheet" href="/project-tasty-treats-2/assets/favorites-page-190ccb0a.css">
+  </head>
+  <body>
+    <!--Підключення хедера-->
+    <header class="header">
+  <div class="container header-container">
+    <div class="menu-desc">
+      <nav class="page-nav">
+        <ul class="menu list">
+          <li class="menu-item">
+            <a class="menu-link link-home current" href="./index.html">Home</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link link-fav" href="./favorites-page.html"
+              >Favorites</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <a class="logo-link" href="./index.html" aria-label="logotype">
+        <span class="logo-begin">tasty</span
+        ><span class="logo-end">treats.</span>
+      </a>
+      <div class="btn-order-desk">
+        <button class="order-btn" type="button" aria-label="basket">
+          <svg class="order-icon" width="24px" height="24px">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#cart"></use>
+          </svg>
+        </button>
+        <label class="switch-desk">
+          <input
+            class="switch__input switch__input-desk"
+            aria-label="day/night theme"
+            type="checkbox"
+          />
+          <span class="switch__slider"> </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="mobile-icons">
+      <div class="logo-link-mob-container">
+        <a class="logo-link-mob" aria-label="logotype" href="./index.html">
+          <span class="logo-begin-mob">tasty</span
+          ><span class="logo-end-mob">treats.</span>
+        </a>
+      </div>
+
+      <div class="mob-btn">
+        <button
+          class="order-btn-mob order-btn"
+          type="button"
+          aria-label="basket"
+        >
+          <svg class="order-icon" width="24px" height="24px">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#cart"></use>
+          </svg>
+        </button>
+        <button class="burger-btn" type="button" aria-label="burger menu">
+          <svg class="burger" width="32px" height="32px">
+            <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#burger-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-menu is-hidden">
+    <button
+      class="mob-menu-close-btn"
+      type="button"
+      aria-label="close menu button"
+    >
+      <svg class="mobile-menu-close-icon" width="32px" height="32px">
+        <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
+      </svg>
+    </button>
+    <nav class="mobile-nav">
+      <ul class="mob-menu-list">
+        <li class="mob-menu-item">
+          <a
+            class="mob-menu-link mob-menu-link-home active-mob-nav"
+            href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="mob-menu-item">
+          <a
+            class="mob-menu-link mob-menu-link-fav"
+            href="./favorites-page.html"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <label class="label-check">
+      <span class="switch-mob">
+        <input
+          class="switch__input switch__input__mob"
+          type="checkbox"
+          aria-label="day/night theme"
+        />
+        <span class="switch__slider"> </span>
+      </span>
+    </label>
+  </div>
+</header>
+
+    <main>
+      <section class="fav-hero-section js-fav-hero-section">
+        <div class="container fav-container">
+          <h1 class="visually-hidden">Favorites</h1>
+          <img
+            class="fav-hero-img"
+            loading="lazy"
+            srcset="/project-tasty-treats-2/assets/hero_335-4ae1ab05.jpg 335w, /project-tasty-treats-2/assets/hero_670-6eb8532e.jpg 670w, /project-tasty-treats-2/assets/hero_704-b668de49.jpg 704w, /project-tasty-treats-2/assets/hero_1080-b46f47d0.jpg 1080w, /project-tasty-treats-2/assets/hero_1408-e8cb18b0.jpg 1408w, /project-tasty-treats-2/assets/hero_2160-1ceebe08.jpg 2160w"
+            sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
+            src="./img/favorites/hero_335.jpg 335w,"
+            alt="tasty food"
+          />
+        </div>
+      </section>
+
+      <section class="fav-categories-section js-fav-categories-section">
+        <div class="container fav-cat-container">
+          <div class="categ-scroll fav-categories-list">
+            <h2 class="visually-hidden">Favorites categories</h2>
+            <button
+              type="button"
+              class="fav-categories-btn fav-all-categ-btn categ-btn-active js-fav-all-categ-btn"
+            >
+              All categories
+            </button>
+            <div class="fav-categories-list js-fav-categories-list">
+              <!-- розмітка кнопок з локал сторедж -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fav-cards-section cards-grid">
+        <div class="container fav-container">
+          <h2 class="visually-hidden">Favorites recipes</h2>
+          <ul class="fav-cards-list card-list card-set js-fav-cards-list">
+            <!-- розмітка з локал сторедж -->
+          </ul>
+
+          <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
+          <div class="favorites-plug js-favorites-plug">
+            <svg class="icon-favorites-plug" width="68" height="58">
+              <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#favorites-plug"></use>
+            </svg>
+            <p class="plug-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Підключення футера -->
+    <footer class="footer js-fav-footer visually-hidden">
+      <div class="container container-footer">
+        <div class="pagination-panel-fav">
+          <div class="nav-btns">
+            <button class="pagination-btn first-page-btn">
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-left"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-left"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn prev-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-left"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="pages-btns-box">
+            <button class="pagination-btn pages-btn">1</button>
+            <button class="pagination-btn pages-btn">2</button>
+            <button class="pagination-btn pages-btn pag-btn-hidden">3</button>
+            <button class="pagination-btn pages-btn dots-btn">...</button>
+          </div>
+          <div class="nav-btns">
+            <button class="pagination-btn next-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-right"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn last-page-btn">
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-right"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- підключення модалки -->
+    <section class="modal-overlay visually-hidden">
+  <div class="modal-new-order modal-container">
+    <button type="button" class="modal-close-btn new-order-btn">
+      <svg class="modal-close-svg">
+        <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
+      </svg>
+    </button>
+    <h3 class="modal-title">ORDER NOW</h3>
+
+    <form class="modal-form form form-js" name="modal_form">
+      <div class="form-wrapper">
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_name">Name</label>
+
+          <input
+            class="form-field"
+            type="text"
+            name="modal_name"
+            id="modal_name"
+            placeholder="John"
+            pattern="[A-Za-z]{3,50}"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_phone">Phone number</label>
+
+          <input
+            class="form-field"
+            type="tel"
+            name="modal_phone"
+            id="modal_phone"
+            placeholder="+380"
+            pattern="^\+380\d{9}$"
+            
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_email">Email</label>
+
+          <input
+            class="form-field"
+            type="email"
+            name="modal_email"
+            id="modal_email"
+            placeholder="email@gmail.com"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_comment">Comment</label>
+          <textarea
+            
+            class="form-field form-field-comment"
+            name="modal_comment"
+            id="modal_comment"
+          >
+          </textarea>
+        </div>
+      </div>
+
+      <button class="form-btn btn" type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+    <div class="modal-backdrop backdrop-modal">
+  <div class="modal-wrap">
+    <div class="modal-recipe-card">
+      <button class="modal-btn-close">
+        <svg class="modal-button-icon">
+          <use href="/project-tasty-treats-2/assets/icons-0b85c172.svg#x"></use>
+        </svg>
+      </button>
+      <div class="modal-card-markup"></div>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
