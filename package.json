@@ -1,11 +1,11 @@
 {
-  "name": "project-tasty-treats-2",
+  "name": "Sweeeet",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/project-tasty-treats-2/",
+    "build": "vite build --base=/Sweeeet/",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -15,11 +15,13 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21",
+    "axios": "^1.5.0",
+    "debounce": "^1.2.1",
+    "normalize.css": "^8.0.1",
     "notiflix": "^3.2.6",
-    "simplelightbox": "^2.14.2",
-    "swiper": "^10.3.0",
-    "tui-pagination": "^3.4.1",
+    "notifyjs": "^3.0.0",
+    "slim-select": "^2.6.0",
+    "swiper": "^10.2.0",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }

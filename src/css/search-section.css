@@ -1,0 +1,246 @@
+.search-form {
+  width: 335px;
+  margin-bottom: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-form {
+    width: 278px;
+    margin-bottom: 16px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .search-form {
+    display: block;
+    /* gap: 16px; */
+    margin: 0;
+  }
+
+  .search-form-js {
+    display: flex;
+    gap: 16px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .filter-wrapper {
+    width: 419px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .filter-wrapper {
+    display: flex;
+    gap: 16px;
+    width: 780px;
+  }
+}
+
+.search-form label,
+.filter-item label {
+  display: block;
+  font-size: 12px;
+  line-height: 1.17;
+  font-weight: 500;
+
+  margin-bottom: 8px;
+  color: var(--txt-cl-50-light-theme);
+}
+@media only screen and (min-width: 768px) {
+  .search-form label,
+  .filter-item label {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 335px;
+  height: 46px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-input-wrapper {
+    width: 278px;
+  }
+}
+
+.search-form input {
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 48px;
+
+  font-size: 14px;
+  line-height: 1.17;
+
+  border: 1px solid var(--border-light-theme);
+  border-radius: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-form input {
+    width: 278px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.option-def-ingr,
+.option-def-time,
+.option-def-area {
+  font-size: 14px;
+  line-height: 1.17;
+  font-weight: 400;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  transition: stroke 250ms var(--timing-function);
+  pointer-events: none;
+  height: 18px;
+  stroke: var(--txt-cl-50-light-theme);
+}
+
+.filter-list {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .filter-list {
+    width: 486px;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+}
+
+.filter-item select {
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.17;
+
+  color: var(--txt-cl-50-light-theme);
+  border: 1px solid var(--border-light-theme);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .filter-item select {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1279.9px) {
+  .filter-item:first-child {
+    position: absolute;
+    bottom: 89px;
+    left: 294px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .filter-list li:first-child {
+    min-width: 125px;
+  }
+}
+
+.filter-list li {
+  width: 160px;
+}
+
+/* .filter-item #area-select {
+  width: ;
+} */
+/* @media only screen and (min-width: 768px) {
+  .filter-list li {
+    min-width: 141px;
+  }
+} */
+
+.filter-list li:last-child {
+  width: 188px;
+}
+.reset-desc {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--txt-cl-50-light-theme);
+}
+.btn-reset-thumb {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  padding-top: 14px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn-reset-thumb {
+    padding-bottom: 14px;
+  }
+}
+
+.reset-btn {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 250ms var(--timing-function);
+}
+
+.reset-filter-icon {
+  height: 16px;
+  stroke: var(--accent-cl);
+}
+
+@media (hover: hover) {
+  .reset-btn:hover,
+  .reset-btn:focus {
+    transform: scale(1.2);
+  }
+}
+@media not (hover: hover) {
+  .reset-btn:active {
+    transform: scale(1.2);
+  }
+}
+
+/* #time-select {
+  width: 160px;
+  height: 46px;
+} */
+
+@media only screen and (min-width: 768px) {
+  #time-select {
+    width: 125px;
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #area-select {
+    width: 141px;
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #ingredients-select {
+    width: 188px;
+    height: 48px;
+  }
+}

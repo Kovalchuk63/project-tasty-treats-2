@@ -4,112 +4,62 @@
   | default @import url()
   |============================
 */
-@import url('./base/modern-normalize.css');
-@import url('./base/hidden.css');
-@import url('./base/reset.css');
-@import url('./base/scroll-fonts.css');
-
-@import url('./block-categories.css');
-@import url('./block-list.css');
-@import url('./block-popupar.css');
-@import url('./block-search.css');
-@import url('./pagin.css');
-
+@import url('../../node_modules/normalize.css/normalize.css');
+@import url('./reset.css');
 @import url('./header.css');
-@import url('./hero.css');
+@import url('./hero-section.css');
+@import url('../../node_modules/swiper/swiper-bundle.css');
+@import url('./categories-section.css');
+@import url('./search-section.css');
+@import url('./cards-section.css');
+@import url('./popular-recipe.css');
+@import url('./modal-new-order.css');
+@import url('./modal-full-recipe.css');
+@import url('./modal-rating.css');
+@import url('./favorites-page.css');
+@import url('./footer.css');
+@import url('./home.css');
 
-@import url('./modal-order.css');
-@import url('./modal-recipes.css');
-
-@import url('./favor-header.css');
-@import url('./favor-page.css');
-
-/*import fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-/*------------*/
-:root {
+@font-face {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  /* lt - light theme color */
-  --lt-background-color: rgba(248, 248, 248, 1);
-  --lt-text-color: rgba(5, 5, 5, 1);
-  --lt-border-color-opacity-twenty: rgba(5, 5, 5, 0.2);
-  --lt-text-color-opacity-thirty: rgba(5, 5, 5, 0.3);
-  --lt-text-color-opacity-fifty: rgba(5, 5, 5, 0.5);
-  --lt-text-color-opacity-sixty: rgba(248, 248, 248, 0.6);
-  --lt-text-color-opacity-eighty: rgba(5, 5, 5, 0.8);
-
-  /* dt - dark theme color */
-  --dt-background-color: rgba(22, 22, 22, 1);
-  --dt-text-color: rgba(255, 255, 255, 1);
-  --dt-border-color-opacity-twenty: rgba(255, 255, 255, 0.2);
-  --dt-text-color-opacity-thirty: rgba(255, 255, 255, 0.3);
-  --dt-text-color-opacity-fifty: rgba(255, 255, 255, 0.5);
-  --dt-text-color-opacity-sixty: rgba(255, 255, 255, 0.6);
-  --dt-text-color-opacity-eighty: rgba(255, 255, 255, 0.8);
-
-  --brand-color: rgba(155, 181, 55, 1);
-  --stars-color: rgba(238, 161, 12, 1);
-  --shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.6);
-  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-style: normal;
+  font-weight: 400, 500, 600;
+  src: url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap);
 }
 
-/* контейнер для 3ьох переломів в цсс */
 
-.container {
-  min-width: 320px;
-  margin: 0 auto;
-  max-width: 375px;
-  padding: 0 20px;
-}
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
-  }
-}
+:root {
+  --font-family: Inter, sans-serif;
 
-@media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1104px;
-    padding: 0 12px;
-  }
-}
+  /*txt-color*/
+  --txt-cl-100-light-theme: rgb(5, 5, 5);
+  --txt-cl-80-light-theme: rgba(5, 5, 5, 0.8);
+  --txt-cl-50-light-theme: rgba(5, 5, 5, 0.5);
+  --txt-cl-30-light-theme: rgba(5, 5, 5, 0.3);
+  --secondary-txt-cl-100-light-theme: rgba(248, 248, 248, 1);
 
-.filter {
-  padding-top: 80px;
-}
+  --txt-cl-100-dark-theme: rgba(255, 255, 255, 1);
+  --txt-cl-80-dark-theme: rgba(255, 255, 255, 0.8);
+  --txt-cl-50-dark-theme: rgba(255, 255, 255, 0.5);
+  --txt-cl-30-dark-theme: rgba(255, 255, 255, 0.3);
 
-@media screen and (min-width: 768px) {
-  .cont-div {
-    gap: 32px;
-    display: flex;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .cont-div {
-    gap: 64px;
-    display: flex;
-  }
-}
+  /*color*/
+  --accent-cl: rgb(155, 181, 55);
+  --bg-cl-light-theme: rgb(248, 248, 248);
+  --bg-cl-dark-theme: rgb(22, 22, 22);
+  --bg-cl-modal-bg: rgb(255, 255, 255);
 
-@media screen and (min-width: 768px) {
-  .left-side {
-    padding-top: 26px;
-  }
-}
+  --border-light-theme: rgba(5, 5, 5, 0.2);
+  --border-dark-theme: 1px solid rgba(255, 255, 255, 0.2);
 
-@media screen and (min-width: 768px) {
-  .rigth-side {
-    padding-top: 26px;
-  }
+  --cl-number-pages: rgb(5, 5, 5);
+  --cl-rating: rgb(238, 161, 12);
+
+  /*сітка картинок*/
+  --indent-horizontal: 32px;
+  --indent-vertical: 16px;
+  --items: 1;
+
+  /*анімація*/
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
